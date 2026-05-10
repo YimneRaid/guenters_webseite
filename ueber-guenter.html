@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Über uns – Günter's Baumstriezelei</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700;900&family=Sacramento&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-hero {
+      background: var(--green-deep);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .page-hero-breadcrumb { font-size: 0.78rem; color: #d4b890; margin-bottom: 1.2rem; }
+    .page-hero-breadcrumb a { color: var(--amber); }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .bio-portrait {
+      position: sticky;
+      top: 96px;
+    }
+    .portrait-img {
+      width: 100%;
+      height: 460px;
+      border-radius: var(--radius-lg);
+    }
+    .portrait-caption {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+    .bio-text p {
+      color: var(--ink-soft);
+      line-height: 1.9;
+      margin-bottom: 1.4rem;
+      font-size: 1.02rem;
+    }
+    .bio-text p strong { color: var(--ink); }
+
+    .pull-quote {
+      border-left: 4px solid var(--amber);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      background: var(--cream-dark);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--ink) !important;
+      margin: 0 !important;
+      line-height: 1.5 !important;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .stat-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-top: 3px solid var(--amber);
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .value-item {
+      padding: 1.75rem;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    .value-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .value-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .value-desc { font-size: 0.87rem; color: var(--ink-soft); line-height: 1.65; }
+
+    @media (max-width: 900px) {
+      .bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .bio-portrait { position: static; }
+      .portrait-img { height: 320px; }
+      .stats-row { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-main">GÜNTER'S</span>
+      <span class="nav-logo-sub">Baumstriezelei</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="baumstriezel.html">Das Baumstriezel</a></li>
+      <li><a href="ueber-guenter.html" class="active">Über uns</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="termine.html">Termine</a></li>
+      <li><a href="kontakt.html" class="nav-book-btn">Kontakt &amp; Buchen</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-content">
+
+  <div class="page-hero">
+    <p class="page-hero-breadcrumb"><a href="index.html">Startseite</a> › Über uns</p>
+    <p class="section-label">Die Menschen hinter dem Marktstand</p>
+    <h1 class="section-title section-title--light" style="font-size: clamp(2rem, 4vw, 3.2rem);">Über uns</h1>
+    <p class="section-lead section-lead--light" style="margin: 0 auto; text-align:center;">Leidenschaft, Handwerk und über 20 Jahre Erfahrung — das sind wir.</p>
+  </div>
+  <div class="wood-bar"></div>
+
+  <section class="section section--white">
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-portrait">
+          <div class="img-placeholder portrait-img">
+            <span class="img-placeholder-label">Foto: Portrait Günter<br>am Marktstand</span>
+          </div>
+          <p class="portrait-caption">Günter — Gründer &amp; Betreiber<br>Günter's Baumstriezelei, Linz</p>
+        </div>
+        <div class="bio-text">
+          <p class="section-label">Unsere Geschichte</p>
+          <h2 class="section-title">Hallo, wir sind<br>Günter's Baumstriezelei</h2>
+          <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+          <p>Was als Leidenschaft begann, ist heute unser Beruf — und wir würden es kein einziges Mal anders machen. Seit über <strong>20 Jahren</strong> backen wir Baumstriezel und sind damit auf den schönsten Märkten Österreichs unterwegs.</p>
+
+          <div class="pull-quote">
+            <p>„Wenn die Leute den Duft wahrnehmen und lächeln — das ist für uns das Schönste an diesem Beruf."</p>
+          </div>
+
+          <p>Der Baumstriezel hat uns von Anfang an fasziniert: dieses einfache, ehrliche Handwerk — Teig ausrollen, aufwickeln, am Grill drehen, zuschauen wie er goldbraun wird. Es gibt nichts Schöneres, als wenn Kunden, die seit Jahren wiederkommen, noch immer leuchten beim ersten Biss.</p>
+
+          <p>Unser Food-Anhänger ist unser Zuhause auf Märkten. Vom <strong>Urfahranermarkt</strong> in Linz über den <strong>Weihnachtsmarkt</strong>, die <strong>Streetfood Festivals im Salzkammergut</strong> bis hin zu <strong>Weinfesten und Bubblesdays</strong> — wir sind dort, wo Menschen zusammenkommen und Freude am guten Essen haben.</p>
+
+          <p>Besonders am Herzen liegt uns die <strong>Qualität</strong>: Frische Zutaten, kein Kompromiss beim Handwerk, jedes Baumstriezel einzeln mit Hand geformt. Das ist unser Versprechen — heute genauso wie vor 20 Jahren.</p>
+
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="stat-number">20+</div>
+              <div class="stat-label">Jahre Erfahrung</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Handarbeit</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">∞</div>
+              <div class="stat-label">Leidenschaft</div>
+            </div>
+          </div>
+
+          <p>Neben den regulären Märkten ist Günter's Baumstriezelei auch <strong>buchbar für Firmenveranstaltungen und private Events</strong>. Ob Betriebsfest, Weihnachtsfeier oder privater Markt — wir bringen das Flair eines echten Marktstands zu euch.</p>
+          <a href="kontakt.html" class="btn btn-primary" style="margin-top:0.5rem;">Für Events anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <p class="section-label">Wofür wir stehen</p>
+      <h2 class="section-title">Unsere Werte</h2>
+      <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+      <div class="values-grid">
+        <div class="value-item">
+          <div class="value-icon">🤲</div>
+          <p class="value-title">Handwerk</p>
+          <p class="value-desc">Jedes Baumstriezel wird von Hand geformt. Kein Automat, keine Abkürzung — nur echte Handarbeit.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🌿</div>
+          <p class="value-title">Frische</p>
+          <p class="value-desc">Frisch gebacken, immer. Wir bereiten alles direkt am Stand zu — man sieht und riecht den Unterschied.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">❤️</div>
+          <p class="value-title">Leidenschaft</p>
+          <p class="value-desc">Über 20 Jahre und die Begeisterung ist dieselbe wie am ersten Tag. Das schmeckt man.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-logo-main">GÜNTER'S</span>
+        <span class="footer-logo-sub">Baumstriezelei</span>
+        <p class="footer-tagline">Süßes zum Verlieben</p>
+        <p class="footer-desc">Frisch gebackene Baumstriezel auf Märkten in ganz Oberösterreich. Seit über 20 Jahren mit Leidenschaft dabei.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Navigation</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="baumstriezel.html">Das Baumstriezel</a></li>
+          <li><a href="ueber-guenter.html">Über uns</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="termine.html">Termine</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Kontakt</p>
+        <p class="footer-contact-item">Günter's Baumstriezelei</p>
+        <p class="footer-contact-item">Linz, 4020</p>
+        <p class="footer-contact-item"><a href="mailto:info@baumstriezelei.at">info@baumstriezelei.at</a></p>
+        <p class="footer-contact-item"><a href="tel:+436763207554">+43 676 320 7554</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 Günter's Baumstriezelei · www.baumstriezelei.at</span>
+      <a href="impressum.html">Impressum</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  }
+</script>
+</body>
+</html>
