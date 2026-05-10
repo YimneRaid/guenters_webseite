@@ -389,7 +389,8 @@ a:hover { color: var(--amber-dark); }
    Standardmäßig ein Platzhalter, mit .has-image wird das echte Bild angezeigt */
 .hero-photo {
   position: relative;
-  height: 460px;
+  height: auto;
+  min-height: 460px;
   border-radius: 18px;
   background: repeating-linear-gradient(
     45deg,
@@ -418,13 +419,16 @@ a:hover { color: var(--amber-dark); }
 .hero-photo.has-image {
   background: none;
   border: none;
-  overflow: hidden;
+  overflow: visible;
 }
 .hero-photo.has-image img {
-  width: 130%;              /* Etwas größer als der Container */
+  width: 130%;
   max-width: none;
   object-fit: contain;
   border-radius: 0;
+  margin-left: 080%;
+  transform: scaleX(1.15);
+  transform-origin: right center;
 }
 
 /* ===========================================================
@@ -936,9 +940,26 @@ a:hover { color: var(--amber-dark); }
   .nav-toggle { display: block; }  /* Hamburger-Icon anzeigen */
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .usp-strip-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Banner-Titel auf Mobile kleiner und zentriert */
+  .banner-title {
+    font-size: clamp(1.8rem, 9vw, 3.2rem);
+    text-align: center;
+    word-break: break-word;
+    padding: 0 0.5rem;
+  }
+  .banner-title-bar {
+    padding: 2rem 1rem 2rem;
+  }
 }
 
 /* Sehr kleine Smartphones (unter 480px) */
 @media (max-width: 480px) {
   .usp-strip-grid { grid-template-columns: 1fr; }
+
+  /* Titel noch kleiner auf sehr kleinen Bildschirmen */
+  .banner-title {
+    font-size: clamp(1.5rem, 8vw, 2.4rem);
+    letter-spacing: 0;
+  }
 }
