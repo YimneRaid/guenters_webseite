@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Termine – Günter's Baumstriezelei</title>
+
+  <!-- Google Fonts einbinden -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700;900&family=Sacramento&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
+  <!-- Gemeinsames Stylesheet für alle Seiten -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Seitenspezifische Styles nur für diese Seite -->
   <style>
+    /* Hero-Bereich oben */
     .page-hero {
       background: var(--green-deep);
       padding: 5rem 2rem 4rem;
@@ -15,6 +21,7 @@
     .page-hero-breadcrumb { font-size: 0.78rem; color: #d4b890; margin-bottom: 1.2rem; }
     .page-hero-breadcrumb a { color: var(--amber); }
 
+    /* Saison-Tabs (Kommende, Frühling, Sommer, Herbst, Winter) */
     .season-tabs {
       display: flex;
       gap: 0.5rem;
@@ -41,20 +48,23 @@
     .season-tab:hover { color: var(--ink); }
     .season-tab.active {
       color: var(--green-deep);
-      border-bottom-color: var(--amber);
+      border-bottom-color: var(--amber);   /* Goldene Unterstreichung */
     }
 
+    /* Saison-Panels: nur das aktive wird angezeigt */
     .season-panel { display: none; }
     .season-panel.active { display: block; }
 
+    /* Terminliste — Karten untereinander */
     .event-list { display: flex; flex-direction: column; gap: 1.25rem; }
 
+    /* Einzelne Terminkarte (Datum | Info | Button) */
     .event-card {
       background: var(--white);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-sm);
       display: grid;
-      grid-template-columns: 90px 1fr auto;
+      grid-template-columns: 90px 1fr auto;   /* 3 Spalten */
       align-items: center;
       gap: 0;
       overflow: hidden;
@@ -62,6 +72,7 @@
     }
     .event-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
+    /* Datumsbereich links (dunkler Hintergrund) */
     .event-date {
       background: var(--brown-dark);
       color: var(--white);
@@ -78,7 +89,7 @@
       font-size: 1.8rem;
       font-weight: 700;
       line-height: 1;
-      color: var(--amber);
+      color: var(--amber);        /* Goldene Zahl */
     }
     .event-date-month {
       font-size: 0.68rem;
@@ -94,6 +105,7 @@
       margin-top: 0.1rem;
     }
 
+    /* Info-Bereich in der Mitte */
     .event-info { padding: 1.25rem 1.5rem; }
     .event-name {
       font-family: var(--font-display);
@@ -113,6 +125,7 @@
       content: '📍';
       font-size: 0.75rem;
     }
+    /* Saison-Tag (Frühling, Sommer, etc.) */
     .event-tag {
       display: inline-block;
       margin-top: 0.5rem;
@@ -125,14 +138,17 @@
       background: var(--green-light);
       color: var(--green-deep);
     }
+    /* Farbvarianten für verschiedene Saisons */
     .event-tag.tag-winter { background: #dde8f5; color: #2a4a78; }
     .event-tag.tag-summer { background: #fdf2d8; color: #7a5520; }
     .event-tag.tag-spring { background: #e8f0d8; color: #2e5a30; }
 
+    /* Button-Bereich rechts */
     .event-cta {
       padding: 1.25rem 1.5rem;
     }
 
+    /* Buchungsbanner unten — "Günter für euer Event buchen?" */
     .booking-banner {
       background: var(--amber);
       border-radius: var(--radius-lg);
@@ -156,14 +172,18 @@
       color: #5a2810;
     }
 
+    /* Responsive */
     @media (max-width: 600px) {
       .event-card { grid-template-columns: 70px 1fr; }
-      .event-cta { display: none; }
+      .event-cta { display: none; }   /* Button auf Mobile ausblenden */
     }
   </style>
 </head>
 <body>
 
+<!-- ============================================================
+     NAVIGATION — gleich auf allen Seiten
+     ============================================================ -->
 <nav class="site-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -186,6 +206,9 @@
 
 <main class="page-content">
 
+  <!-- ============================================================
+       HERO-BEREICH
+       ============================================================ -->
   <div class="page-hero">
     <p class="page-hero-breadcrumb"><a href="index.html">Startseite</a> › Termine</p>
     <p class="section-label">Wo wir zu finden sind</p>
@@ -194,9 +217,22 @@
   </div>
   <div class="wood-bar"></div>
 
+  <!-- ============================================================
+       TERMINE-BEREICH
+
+       Tabs: Über die Saison-Tabs kann man zwischen verschiedenen
+       Ansichten wechseln. Der JavaScript-Code unten steuert das.
+
+       Neue Termine hinzufügen: Eine .event-card kopieren und die
+       Daten (Tag, Monat, Jahr, Name, Ort) anpassen.
+
+       data-panel Attribut auf dem Tab muss mit der ID des Panels
+       übereinstimmen (z.B. data-panel="sommer" → id="panel-sommer")
+       ============================================================ -->
   <section class="section section--cream">
     <div class="container">
 
+      <!-- Saison-Tabs -->
       <div class="season-tabs">
         <button class="season-tab active" data-panel="upcoming">Kommende Termine</button>
         <button class="season-tab" data-panel="fruehling">Frühling</button>
@@ -205,10 +241,12 @@
         <button class="season-tab" data-panel="winter">Winter</button>
       </div>
 
+      <!-- ====== Panel: Kommende Termine ====== -->
       <div class="season-panel active" id="panel-upcoming">
         <p class="section-label" style="margin-bottom:1.5rem;">Nächste Veranstaltungen</p>
         <div class="event-list">
 
+          <!-- Termin: Urfahranermarkt Frühling -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -225,6 +263,7 @@
             </div>
           </div>
 
+          <!-- Termin: Streetfood Festival Wels -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -241,6 +280,7 @@
             </div>
           </div>
 
+          <!-- Termin: Streetfood Festival Gmunden -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -257,6 +297,7 @@
             </div>
           </div>
 
+          <!-- Termin: Bubblesdays -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -273,6 +314,7 @@
             </div>
           </div>
 
+          <!-- Termin: Weinfest -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -289,6 +331,7 @@
             </div>
           </div>
 
+          <!-- Termin: Urfahranermarkt Herbst -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -305,6 +348,7 @@
             </div>
           </div>
 
+          <!-- Termin: Weihnachtsmarkt -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -323,11 +367,13 @@
 
         </div>
 
+        <!-- Hinweis zu fehlenden Daten -->
         <p style="margin-top:2rem; font-size:0.87rem; color:var(--ink-soft);">
           ℹ️ Genaue Daten werden sobald wie möglich ergänzt. Für aktuelle Infos gerne per E-Mail melden oder auf Facebook folgen.
         </p>
       </div>
 
+      <!-- ====== Panel: Frühling ====== -->
       <div class="season-panel" id="panel-fruehling">
         <div class="event-list">
           <div class="event-card">
@@ -345,6 +391,7 @@
         </div>
       </div>
 
+      <!-- ====== Panel: Sommer ====== -->
       <div class="season-panel" id="panel-sommer">
         <div class="event-list">
           <div class="event-card">
@@ -386,6 +433,7 @@
         </div>
       </div>
 
+      <!-- ====== Panel: Herbst ====== -->
       <div class="season-panel" id="panel-herbst">
         <div class="event-list">
           <div class="event-card">
@@ -403,6 +451,7 @@
         </div>
       </div>
 
+      <!-- ====== Panel: Winter ====== -->
       <div class="season-panel" id="panel-winter">
         <div class="event-list">
           <div class="event-card">
@@ -420,6 +469,9 @@
         </div>
       </div>
 
+      <!-- ============================================================
+           BUCHUNGSBANNER — "Günter für euer Event buchen?"
+           ============================================================ -->
       <div class="booking-banner">
         <div class="booking-banner-text">
           <strong>Günter für euer Event buchen?</strong>
@@ -433,6 +485,9 @@
 
 </main>
 
+<!-- ============================================================
+     FOOTER — gleich auf allen Seiten
+     ============================================================ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
@@ -468,16 +523,26 @@
   </div>
 </footer>
 
+<!-- ============================================================
+     JAVASCRIPT
+     1. Saison-Tabs: Wechselt zwischen den Panels (Kommende, Frühling, etc.)
+        Beim Klick auf einen Tab wird das zugehörige Panel angezeigt.
+     2. Hamburger-Menü: Mobile Navigation öffnen/schließen
+     ============================================================ -->
 <script>
+  // Saison-Tab Wechsel
   document.querySelectorAll('.season-tab').forEach(tab => {
     tab.addEventListener('click', () => {
+      // Alle Tabs und Panels deaktivieren
       document.querySelectorAll('.season-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.season-panel').forEach(p => p.classList.remove('active'));
+      // Angeklickten Tab und zugehöriges Panel aktivieren
       tab.classList.add('active');
       document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
     });
   });
 
+  // Hamburger-Menü
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {

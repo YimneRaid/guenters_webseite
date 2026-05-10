@@ -1,45 +1,75 @@
 /* =============================================
-   GÜNTER'S BAUMSTRIEZELEI — Shared Stylesheet
+   GÜNTER'S BAUMSTRIEZELEI — Gemeinsames Stylesheet
+   ==============================================
+   Diese Datei enthält alle Styles, die auf ALLEN Seiten verwendet werden.
+   Änderungen hier wirken sich auf die gesamte Website aus!
    ============================================= */
 
-/* ── Tokens ── */
+/* ── Farbvariablen & Design-Tokens ──
+   Hier werden alle Farben, Schriften und Abstände zentral definiert.
+   Um eine Farbe zu ändern, einfach den Wert hier anpassen —
+   er wird automatisch überall auf der Seite aktualisiert. */
 :root {
+  /* Grüntöne (für Navigation, Buttons, Akzente) */
   --green-deep:    #758A48;
   --green-mid:     #8fa058;
   --green-light:   #eef2e4;
+
+  /* Amber/Gold (für Buttons, Highlights, Akzente) */
   --amber:         #C58F33;
   --amber-dark:    #a07228;
+
+  /* Cremetöne (Hintergründe für Unterseiten) */
   --cream:         #faf8f4;
   --cream-dark:    #f0e9de;
+
+  /* Brauntöne (Rahmen, Datumskästen, dunkle Akzente) */
   --brown-pale:    #D2B48C;
   --brown-mid:     #916A4F;
   --brown-dark:    #6D3012;
-  --ink:           #6D3012;
-  --ink-soft:      #8a4a28;
+
+  /* Text-Farben */
+  --ink:           #6D3012;    /* Haupttext */
+  --ink-soft:      #8a4a28;    /* Sekundärer Text */
   --white:         #fffdfb;
 
+  /* Olive-Töne (für Karten, Banner auf der Startseite) */
   --olive:         #8aa14a;
   --olive-deep:    #758a48;
   --olive-soft:    #9bb35c;
-  --wood-dark:     #2a1a10;
-  --wood-mid:      #3d2515;
-  --wood-warm:     #4a2f1c;
+
+  /* Holz-Töne (dunkler Hintergrund auf der Startseite) */
+  --wood-dark:     #806b5f;
+  --wood-mid:      #6b5547;
+  --wood-warm:     #6f5c4f;
+
+  /* Helle Textfarben (für dunkle Hintergründe) */
   --cream-text:    #f6f1e3;
   --paper:         #faf6ec;
 
+  /* Schriften —
+     font-heading: Alfa Slab One für alle Überschriften (mit grünem Schatten)
+     font-display: Playfair Display für elegantere Elemente
+     font-body: Lato für den Fließtext */
   --font-heading:  'Alfa Slab One', 'Playfair Display', Georgia, serif;
   --font-display:  'Playfair Display', Georgia, serif;
   --font-body:     'Lato', Helvetica, sans-serif;
 
-  --radius:        6px;
-  --radius-lg:     12px;
-  --shadow-sm:     0 2px 8px rgba(109,48,18,0.10);
-  --shadow-md:     0 6px 24px rgba(109,48,18,0.14);
+  /* Abgerundete Ecken */
+  --radius:        6px;      /* Standard */
+  --radius-lg:     12px;     /* Größer (Karten, Bilder) */
+
+  /* Schatten */
+  --shadow-sm:     0 2px 8px rgba(109,48,18,0.10);   /* Leicht */
+  --shadow-md:     0 6px 24px rgba(109,48,18,0.14);   /* Mittel */
 }
 
-/* ── Reset ── */
+/* ── Grundeinstellungen (Reset) ──
+   Setzt Abstände zurück und definiert Basis-Styles für die ganze Seite */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
+/* Standard-Body: heller Creme-Hintergrund (für alle Unterseiten) */
 body {
   font-family: var(--font-body);
   background: var(--cream);
@@ -47,23 +77,30 @@ body {
   line-height: 1.7;
   font-size: 17px;
 }
+
+/* Startseite: dunkler Holzhintergrund —
+   Diese Klasse wird nur auf index.html gesetzt (<body class="page-home">) */
 body.page-home {
   background: var(--wood-dark);
   color: var(--cream-text);
 }
+
 img { display: block; max-width: 100%; }
 a { color: var(--green-mid); text-decoration: none; }
 a:hover { color: var(--amber-dark); }
 
-/* ── Wood texture surface ── */
+/* ── Holz-Textur-Hintergrund ──
+   Wird auf der Startseite für große Bereiche verwendet.
+   Das Bild wird mit "multiply" über die Grundfarbe gelegt. */
 .wood-surface {
-  background-color: #2a1a10;
-  background-image: url("uploads/daria-yakovleva-wood-2045379.jpg");
+  background-color: #b0998b;
+  background-image: url("uploads/Holzhintergrund.jpg");
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
   position: relative;
 }
+/* Dunkler Rand-Effekt über der Holztextur */
 .wood-surface::before {
   content: "";
   position: absolute;
@@ -75,7 +112,8 @@ a:hover { color: var(--amber-dark); }
 }
 .wood-surface > * { position: relative; z-index: 1; }
 
-/* ── Green band dividers ── */
+/* ── Grüner Trennbalken ──
+   Wird zwischen Sektionen auf der Startseite verwendet */
 .green-band {
   height: 26px;
   background: var(--olive);
@@ -84,11 +122,13 @@ a:hover { color: var(--amber-dark); }
 }
 .green-band--thin { height: 14px; }
 
-/* ── Navigation ── */
+/* ===========================================================
+   NAVIGATION (auf allen Seiten sichtbar)
+   =========================================================== */
 .site-nav {
-  position: sticky;
+  position: sticky;          /* Bleibt beim Scrollen oben */
   top: 0;
-  z-index: 100;
+  z-index: 100;              /* Immer über dem Inhalt */
   background: var(--olive-deep);
   border-bottom: 3px solid var(--olive);
   box-shadow: 0 2px 12px rgba(30,50,15,0.3);
@@ -100,9 +140,11 @@ a:hover { color: var(--amber-dark); }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 72px;              /* Feste Höhe der Navigation */
   gap: 2rem;
 }
+
+/* Logo in der Navigation */
 .nav-logo {
   display: flex;
   flex-direction: column;
@@ -118,13 +160,15 @@ a:hover { color: var(--amber-dark); }
   font-size: 1.05rem;
 }
 .nav-logo-sub {
-  font-family: 'Sacramento', cursive;
+  font-family: 'Sacramento', cursive;   /* Handschrift-Stil */
   font-size: 1.1rem;
   color: #f0e6c8;
   text-transform: none;
   letter-spacing: 0.02em;
   margin-top: -2px;
 }
+
+/* Navigationslinks */
 .nav-links {
   list-style: none;
   display: flex;
@@ -145,10 +189,12 @@ a:hover { color: var(--amber-dark); }
   transition: background 0.18s, color 0.18s;
 }
 .nav-links a:hover,
-.nav-links a.active {
+.nav-links a.active {        /* .active = aktuelle Seite hervorheben */
   background: var(--olive);
   color: #fff;
 }
+
+/* "Kontakt & Buchen" Button in der Navigation */
 .nav-book-btn {
   background: #f0e6c8 !important;
   color: var(--olive-deep) !important;
@@ -159,9 +205,10 @@ a:hover { color: var(--amber-dark); }
   color: var(--wood-dark) !important;
 }
 
-/* ── Mobile hamburger ── */
+/* ── Hamburger-Menü (für Mobile) ──
+   Wird nur auf kleinen Bildschirmen angezeigt (unter 768px) */
 .nav-toggle {
-  display: none;
+  display: none;             /* Standardmäßig versteckt */
   background: none;
   border: none;
   cursor: pointer;
@@ -176,21 +223,25 @@ a:hover { color: var(--amber-dark); }
   transition: transform 0.3s, opacity 0.3s;
 }
 
-/* ── Hero banner ── */
+/* ===========================================================
+   HERO-BANNER (Startseite, großer Bereich oben)
+   =========================================================== */
 .banner-hero {
   padding: 0;
   overflow: hidden;
 }
+/* Titelzeile im Banner */
 .banner-title-bar {
   padding: 3.2rem 2rem 3rem;
   text-align: center;
 }
 .banner-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 7vw, 6rem);
+  font-size: clamp(2.4rem, 7vw, 6rem);  /* Responsive Größe */
   line-height: 0.95;
   color: var(--paper);
   letter-spacing: 0.02em;
+  /* Grüner Schatten + schwarzer Tiefenschatten */
   text-shadow: 4px 4px 0 var(--olive), 5px 5px 0 rgba(0,0,0,0.3);
   margin: 0;
 }
@@ -198,6 +249,7 @@ a:hover { color: var(--amber-dark); }
   font-style: normal;
   color: var(--paper);
 }
+/* Bereich mit Kontaktkarte + Foto nebeneinander */
 .banner-stage {
   position: relative;
   padding: 4.5rem 2rem;
@@ -215,7 +267,9 @@ a:hover { color: var(--amber-dark); }
   align-items: center;
 }
 
-/* ── Olive contact card ── */
+/* ===========================================================
+   OLIVGRÜNE KONTAKTKARTE (Startseite Hero-Bereich)
+   =========================================================== */
 .olive-card {
   background: var(--olive);
   border-radius: 28px;
@@ -225,6 +279,7 @@ a:hover { color: var(--amber-dark); }
   max-width: 480px;
   position: relative;
 }
+/* Handschrift-Text in der Karte */
 .olive-card .script {
   font-family: 'Sacramento', cursive;
   font-size: clamp(2.2rem, 4.5vw, 3.4rem);
@@ -232,6 +287,7 @@ a:hover { color: var(--amber-dark); }
   color: var(--paper);
   margin-bottom: 0.6rem;
 }
+/* Großbuchstaben-Text in der Karte */
 .olive-card .caps {
   font-family: var(--font-heading);
   font-weight: 400;
@@ -241,6 +297,7 @@ a:hover { color: var(--amber-dark); }
   text-transform: uppercase;
   margin-bottom: 1.6rem;
 }
+/* Kontakt-Zeilen (Icon + Text) */
 .olive-card .contact-row {
   display: flex;
   align-items: center;
@@ -250,6 +307,7 @@ a:hover { color: var(--amber-dark); }
   margin-bottom: 0.65rem;
   flex-wrap: wrap;
 }
+/* Runde Icons in der Kontaktkarte */
 .olive-card .contact-row .icon {
   width: 28px;
   height: 28px;
@@ -269,6 +327,7 @@ a:hover { color: var(--amber-dark); }
   color: #fff;
   text-decoration: underline;
 }
+/* Buttons unter der Kontaktkarte */
 .olive-card-cta {
   display: flex;
   gap: 0.75rem;
@@ -276,11 +335,12 @@ a:hover { color: var(--amber-dark); }
   margin-top: 1.6rem;
 }
 
-/* ── Pill buttons ── */
+/* ── Pill-Buttons (abgerundete Buttons) ──
+   Verwendet in der olivgrünen Kontaktkarte */
 .pill-btn {
   display: inline-block;
   padding: 0.7rem 1.4rem;
-  border-radius: 999px;
+  border-radius: 999px;        /* Vollständig abgerundet */
   font-family: 'Lato', sans-serif;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -295,6 +355,7 @@ a:hover { color: var(--amber-dark); }
   background: var(--paper);
   color: var(--olive-deep);
 }
+/* Ausgefüllte Variante */
 .pill-btn.solid {
   background: var(--paper);
   color: var(--olive-deep);
@@ -304,7 +365,8 @@ a:hover { color: var(--amber-dark); }
   color: var(--wood-dark);
 }
 
-/* ── Striezel decorations ── */
+/* ── Baumstriezel-Dekoration ──
+   Dekorative Bilder am Rand des Hero-Bereichs */
 .striezel-deco {
   position: absolute;
   pointer-events: none;
@@ -323,7 +385,8 @@ a:hover { color: var(--amber-dark); }
   width: 150px;
 }
 
-/* ── Hero photo placeholder ── */
+/* ── Hero-Foto (Baumstriezel-Bild auf der Startseite) ──
+   Standardmäßig ein Platzhalter, mit .has-image wird das echte Bild angezeigt */
 .hero-photo {
   position: relative;
   height: 460px;
@@ -351,19 +414,22 @@ a:hover { color: var(--amber-dark); }
   border-radius: 6px;
   text-align: center;
 }
+/* Wenn ein echtes Bild vorhanden ist */
 .hero-photo.has-image {
   background: none;
   border: none;
   overflow: hidden;
 }
 .hero-photo.has-image img {
-  width: 130%;
+  width: 130%;              /* Etwas größer als der Container */
   max-width: none;
   object-fit: contain;
   border-radius: 0;
 }
 
-/* ── USP strip ── */
+/* ===========================================================
+   USP-LEISTE (Startseite: 20+ Jahre, 100% Handarbeit, etc.)
+   =========================================================== */
 .usp-strip {
   padding: 2.8rem 2rem;
 }
@@ -371,7 +437,7 @@ a:hover { color: var(--amber-dark); }
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);   /* 4 Spalten */
   gap: 1.5rem;
 }
 .usp-tile {
@@ -398,7 +464,9 @@ a:hover { color: var(--amber-dark); }
   margin-top: 0.3rem;
 }
 
-/* ── About section ── */
+/* ===========================================================
+   ÜBER-UNS-BEREICH (Startseite: Text + Foto nebeneinander)
+   =========================================================== */
 .about-block {
   padding: 5rem 2rem;
 }
@@ -406,10 +474,11 @@ a:hover { color: var(--amber-dark); }
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;    /* Zwei gleiche Spalten */
   gap: 3.5rem;
   align-items: center;
 }
+/* Handschrift-Überschrift */
 .about-grid-2 .heading-script {
   font-family: 'Sacramento', cursive;
   font-size: 2.4rem;
@@ -417,6 +486,7 @@ a:hover { color: var(--amber-dark); }
   line-height: 1;
   margin-bottom: 0.4rem;
 }
+/* Hauptüberschrift mit grünem Schatten */
 .about-grid-2 h2 {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3.4vw, 2.8rem);
@@ -432,6 +502,7 @@ a:hover { color: var(--amber-dark); }
   line-height: 1.85;
   margin-bottom: 1rem;
 }
+/* Foto-Platzhalter im Über-uns-Bereich */
 .about-photo {
   height: 380px;
   border-radius: 18px;
@@ -457,8 +528,11 @@ a:hover { color: var(--amber-dark); }
   border-radius: 6px;
 }
 
-/* ── Markets section ── */
+/* ===========================================================
+   MÄRKTE-BEREICH (Startseite: Markt-Kacheln im Raster)
+   =========================================================== */
 .markets-block { padding: 5rem 2rem; }
+/* Kopfbereich mit Titel + Beschreibung */
 .markets-block-head {
   text-align: center;
   max-width: 720px;
@@ -485,6 +559,7 @@ a:hover { color: var(--amber-dark); }
   line-height: 1.8;
   font-size: 1rem;
 }
+/* Raster mit Markt-Kacheln (3 Spalten) */
 .markets-2 {
   max-width: 1100px;
   margin: 0 auto;
@@ -492,6 +567,7 @@ a:hover { color: var(--amber-dark); }
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
+/* Einzelne Markt-Kachel */
 .market-tile {
   background: var(--olive);
   border-radius: 22px;
@@ -523,7 +599,9 @@ a:hover { color: var(--amber-dark); }
 }
 .markets-cta { text-align: center; margin-top: 2.5rem; }
 
-/* ── Booking section ── */
+/* ===========================================================
+   BUCHUNGS-BEREICH (Startseite: "Jetzt buchen" Karte)
+   =========================================================== */
 .booking-block {
   padding: 5rem 2rem;
   text-align: center;
@@ -559,29 +637,38 @@ a:hover { color: var(--amber-dark); }
   margin: 0 auto 1.6rem;
 }
 
-/* ── Page content wrapper ── */
+/* ===========================================================
+   SEITENINHALT (Wrapper für den Hauptbereich)
+   =========================================================== */
 .page-content {
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - 72px);    /* Mindestens so hoch wie der Bildschirm */
 }
 
-/* ── Section utilities ── */
+/* ===========================================================
+   SEKTIONS-HILFSKLASSEN (für Unterseiten)
+   Verschiedene Hintergrundfarben für Abschnitte
+   =========================================================== */
 .section {
   padding: 5rem 2rem;
 }
-.section--cream { background: var(--cream); }
-.section--white { background: var(--white); }
-.section--cream-dark { background: var(--cream-dark); }
-.section--green {
+.section--cream { background: var(--cream); }         /* Helles Creme */
+.section--white { background: var(--white); }         /* Weiß */
+.section--cream-dark { background: var(--cream-dark); } /* Dunkleres Creme */
+.section--green {                                      /* Grüner Hintergrund */
   background: var(--green-deep);
   color: var(--white);
 }
 .section--brown {
   background: var(--brown-pale);
 }
+
+/* Container begrenzt die maximale Breite des Inhalts */
 .container {
   max-width: 1100px;
   margin: 0 auto;
 }
+
+/* Kleine Beschriftung über Überschriften ("HANDGEFERTIGT", "UNSERE GESCHICHTE") */
 .section-label {
   font-family: var(--font-body);
   font-size: 0.72rem;
@@ -591,6 +678,8 @@ a:hover { color: var(--amber-dark); }
   color: var(--amber-dark);
   margin-bottom: 0.6rem;
 }
+
+/* Sektions-Überschrift mit grünem Schatten */
 .section-title {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3vw, 2.6rem);
@@ -598,9 +687,12 @@ a:hover { color: var(--amber-dark); }
   line-height: 1.2;
   color: var(--ink);
   margin-bottom: 1.2rem;
-  text-shadow: 3px 3px 0 var(--olive);
+  text-shadow: 3px 3px 0 var(--olive);     /* Grüner Schatten-Effekt */
 }
+/* Helle Variante (auf grünem/dunklem Hintergrund) */
 .section-title--light { color: var(--white); text-shadow: 3px 3px 0 var(--olive); }
+
+/* Einleitungstext unter einer Überschrift */
 .section-lead {
   font-size: 1.05rem;
   color: var(--ink-soft);
@@ -609,7 +701,8 @@ a:hover { color: var(--amber-dark); }
 }
 .section-lead--light { color: #f0e4cc; }
 
-/* ── Divider ── */
+/* ── Trennlinie mit Raute ──
+   Dekoratives Element unter Überschriften */
 .divider {
   display: flex;
   align-items: center;
@@ -620,10 +713,11 @@ a:hover { color: var(--amber-dark); }
 .divider-diamond {
   width: 8px; height: 8px;
   background: var(--amber);
-  transform: rotate(45deg);
+  transform: rotate(45deg);    /* Raute-Form */
 }
 
-/* ── Wood bar divider ── */
+/* ── Holzbalken-Trennleiste ──
+   Wird zwischen Hero und Inhalt auf Unterseiten verwendet */
 .wood-bar {
   height: 18px;
   background: var(--brown-pale);
@@ -637,7 +731,9 @@ a:hover { color: var(--amber-dark); }
   width: 100%;
 }
 
-/* ── Image placeholder ── */
+/* ── Bild-Platzhalter ──
+   Wird überall dort verwendet, wo noch kein echtes Foto eingefügt wurde.
+   Zeigt ein Streifenmuster und einen Beschriftungstext. */
 .img-placeholder {
   background-color: var(--cream-dark);
   background-image: repeating-linear-gradient(
@@ -667,7 +763,11 @@ a:hover { color: var(--amber-dark); }
   border-radius: 4px;
 }
 
-/* ── Buttons ── */
+/* ===========================================================
+   BUTTONS (auf allen Seiten verwendet)
+   =========================================================== */
+
+/* Basis-Button */
 .btn {
   display: inline-block;
   padding: 0.75rem 2rem;
@@ -682,6 +782,8 @@ a:hover { color: var(--amber-dark); }
   transition: all 0.2s;
   border: 2px solid transparent;
 }
+
+/* Primär-Button (Gold/Amber, ausgefüllt) */
 .btn-primary {
   background: var(--amber);
   color: var(--ink);
@@ -694,6 +796,8 @@ a:hover { color: var(--amber-dark); }
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
 }
+
+/* Umriss-Button (hell, für dunkle Hintergründe) */
 .btn-outline {
   background: transparent;
   color: var(--white);
@@ -704,6 +808,8 @@ a:hover { color: var(--amber-dark); }
   border-color: var(--white);
   color: var(--white);
 }
+
+/* Umriss-Button (dunkel, für helle Hintergründe) */
 .btn-outline-dark {
   background: transparent;
   color: var(--ink);
@@ -715,9 +821,11 @@ a:hover { color: var(--amber-dark); }
   color: var(--white);
 }
 
-/* ── Footer ── */
+/* ===========================================================
+   FOOTER (auf allen Seiten sichtbar)
+   =========================================================== */
 .site-footer {
-  background: #1a0f08;
+  background: #1a0f08;          /* Sehr dunkelbraun */
   color: #c9b88f;
   padding: 3.5rem 2rem 2rem;
 }
@@ -725,12 +833,14 @@ a:hover { color: var(--amber-dark); }
   max-width: 1100px;
   margin: 0 auto;
 }
+/* Footer-Raster: Logo/Text | Navigation | Kontakt */
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: 3rem;
   margin-bottom: 2.5rem;
 }
+/* Logo im Footer */
 .footer-logo-main {
   font-family: var(--font-heading);
   font-size: 1.3rem;
@@ -757,6 +867,7 @@ a:hover { color: var(--amber-dark); }
   color: #b89070;
   margin-top: 1rem;
 }
+/* Spalten-Überschriften im Footer */
 .footer-heading {
   font-family: var(--font-body);
   font-size: 0.7rem;
@@ -766,6 +877,7 @@ a:hover { color: var(--amber-dark); }
   color: var(--olive);
   margin-bottom: 1rem;
 }
+/* Navigationslinks im Footer */
 .footer-links { list-style: none; }
 .footer-links li { margin-bottom: 0.4rem; }
 .footer-links a {
@@ -775,6 +887,7 @@ a:hover { color: var(--amber-dark); }
   transition: color 0.15s;
 }
 .footer-links a:hover { color: var(--olive); }
+/* Kontakt-Infos im Footer */
 .footer-contact-item {
   font-size: 0.87rem;
   color: #c8a070;
@@ -785,6 +898,7 @@ a:hover { color: var(--amber-dark); }
   text-decoration: none;
 }
 .footer-contact-item a:hover { color: var(--olive); }
+/* Untere Zeile im Footer (Copyright + Impressum) */
 .footer-bottom {
   border-top: 1px solid rgba(255,253,251,0.15);
   padding-top: 1.5rem;
@@ -799,7 +913,11 @@ a:hover { color: var(--amber-dark); }
 .footer-bottom a { color: #d4b890; }
 .footer-bottom a:hover { color: var(--olive); }
 
-/* ── Responsive ── */
+/* ===========================================================
+   RESPONSIVE DESIGN — Anpassungen für verschiedene Bildschirmgrößen
+   =========================================================== */
+
+/* Tablets und kleinere Desktops (unter 880px) */
 @media (max-width: 880px) {
   .banner-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-photo { height: 320px; }
@@ -810,14 +928,17 @@ a:hover { color: var(--amber-dark); }
   .striezel-deco.right { display: none; }
 }
 
+/* Mobile Geräte (unter 768px) — Hamburger-Menü wird aktiv */
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  .nav-links { display: none; }    /* Links verstecken */
+  /* Wenn .open gesetzt wird (per JavaScript), erscheint das Menü als Dropdown */
   .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--olive-deep); padding: 1rem; gap: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-  .nav-toggle { display: block; }
+  .nav-toggle { display: block; }  /* Hamburger-Icon anzeigen */
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .usp-strip-grid { grid-template-columns: 1fr 1fr; }
 }
 
+/* Sehr kleine Smartphones (unter 480px) */
 @media (max-width: 480px) {
   .usp-strip-grid { grid-template-columns: 1fr; }
 }

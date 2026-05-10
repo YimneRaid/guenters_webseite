@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galerie – Günter's Baumstriezelei</title>
+
+  <!-- Google Fonts einbinden -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700;900&family=Sacramento&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
+  <!-- Gemeinsames Stylesheet für alle Seiten -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Seitenspezifische Styles nur für diese Seite -->
   <style>
+    /* Hero-Bereich oben */
     .page-hero {
       background: var(--green-deep);
       padding: 5rem 2rem 4rem;
@@ -15,6 +21,7 @@
     .page-hero-breadcrumb { font-size: 0.78rem; color: #d4b890; margin-bottom: 1.2rem; }
     .page-hero-breadcrumb a { color: var(--amber); }
 
+    /* Filter-Leiste (Alle, Herstellung, Marktstand, etc.) */
     .filter-bar {
       display: flex;
       gap: 0.5rem;
@@ -41,11 +48,13 @@
       color: var(--white);
     }
 
+    /* Galerie-Raster (3 Spalten, Masonry-ähnlich) */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
+    /* Einzelnes Galerie-Element */
     .gallery-item {
       border-radius: var(--radius);
       overflow: hidden;
@@ -56,7 +65,9 @@
       border-radius: 0;
       transition: transform 0.3s;
     }
+    /* Hover-Effekt: leichtes Vergrößern */
     .gallery-item:hover .img-placeholder { transform: scale(1.03); }
+    /* Dunkles Overlay beim Hover */
     .gallery-item-overlay {
       position: absolute;
       inset: 0;
@@ -69,6 +80,7 @@
     .gallery-item:hover .gallery-item-overlay {
       background: rgba(50,40,20,0.55);
     }
+    /* Beschriftung, die beim Hover einblendet */
     .gallery-item-caption {
       font-size: 0.8rem;
       font-weight: 700;
@@ -84,8 +96,10 @@
       transform: translateY(0);
     }
 
+    /* Große Bilder, die 2 Zeilen einnehmen */
     .tall { grid-row: span 2; }
 
+    /* Responsive Anpassungen */
     @media (max-width: 768px) {
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .tall { grid-row: span 1; }
@@ -97,6 +111,9 @@
 </head>
 <body>
 
+<!-- ============================================================
+     NAVIGATION — gleich auf allen Seiten
+     ============================================================ -->
 <nav class="site-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -119,6 +136,9 @@
 
 <main class="page-content">
 
+  <!-- ============================================================
+       HERO-BEREICH — grüner Kopfbereich mit Seitentitel
+       ============================================================ -->
   <div class="page-hero">
     <p class="page-hero-breadcrumb"><a href="index.html">Startseite</a> › Galerie</p>
     <p class="section-label">Impressionen</p>
@@ -127,8 +147,19 @@
   </div>
   <div class="wood-bar"></div>
 
+  <!-- ============================================================
+       GALERIE-BEREICH
+
+       Filter-Buttons: Sind aktuell nur visuell (markieren den aktiven Button).
+       Um echte Filterung zu aktivieren, müsste man den Bildern
+       data-Attribute geben und per JavaScript filtern.
+
+       Bilder ersetzen: .img-placeholder durch <img src="..."> ersetzen
+       und die Klasse .img-placeholder entfernen.
+       ============================================================ -->
   <section class="section section--cream">
     <div class="container">
+      <!-- Filter-Buttons -->
       <div class="filter-bar">
         <button class="filter-btn active">Alle</button>
         <button class="filter-btn">Herstellung</button>
@@ -137,7 +168,9 @@
         <button class="filter-btn">Produkte</button>
       </div>
 
+      <!-- Bilder-Raster -->
       <div class="gallery-grid">
+        <!-- Bild 1: Groß (2 Zeilen hoch) -->
         <div class="gallery-item tall">
           <div class="img-placeholder" style="height:100%; min-height:500px;">
             <span class="img-placeholder-label">Foto: Günter am Stand<br>mit frischen Baumstriezel</span>
@@ -147,6 +180,7 @@
           </div>
         </div>
 
+        <!-- Bild 2 -->
         <div class="gallery-item">
           <div class="img-placeholder" style="height:240px;">
             <span class="img-placeholder-label">Foto: Teig aufwickeln<br>auf Holzform</span>
@@ -156,6 +190,7 @@
           </div>
         </div>
 
+        <!-- Bild 3 -->
         <div class="gallery-item">
           <div class="img-placeholder" style="height:240px;">
             <span class="img-placeholder-label">Foto: Goldbrauner<br>Baumstriezel am Grill</span>
@@ -165,6 +200,7 @@
           </div>
         </div>
 
+        <!-- Bild 4 -->
         <div class="gallery-item">
           <div class="img-placeholder" style="height:240px;">
             <span class="img-placeholder-label">Foto: Urfahranermarkt<br>Außenansicht</span>
@@ -174,6 +210,7 @@
           </div>
         </div>
 
+        <!-- Bild 5 -->
         <div class="gallery-item">
           <div class="img-placeholder" style="height:240px;">
             <span class="img-placeholder-label">Foto: Fertige<br>Baumstriezel Auswahl</span>
@@ -183,6 +220,7 @@
           </div>
         </div>
 
+        <!-- Bild 6: Groß (2 Zeilen hoch) -->
         <div class="gallery-item tall">
           <div class="img-placeholder" style="height:100%; min-height:500px;">
             <span class="img-placeholder-label">Foto: Weihnachtsmarkt<br>Stimmungsbild Abend</span>
@@ -192,6 +230,7 @@
           </div>
         </div>
 
+        <!-- Bild 7 -->
         <div class="gallery-item">
           <div class="img-placeholder" style="height:240px;">
             <span class="img-placeholder-label">Foto: Zucker<br>karamellisieren</span>
@@ -201,6 +240,7 @@
           </div>
         </div>
 
+        <!-- Bild 8 -->
         <div class="gallery-item">
           <div class="img-placeholder" style="height:240px;">
             <span class="img-placeholder-label">Foto: Streetfood Festival<br>Salzkammergut</span>
@@ -210,6 +250,7 @@
           </div>
         </div>
 
+        <!-- Bild 9 -->
         <div class="gallery-item">
           <div class="img-placeholder" style="height:240px;">
             <span class="img-placeholder-label">Foto: Nahaufnahme<br>Baumstriezel Textur</span>
@@ -219,6 +260,7 @@
           </div>
         </div>
 
+        <!-- Bild 10 -->
         <div class="gallery-item">
           <div class="img-placeholder" style="height:240px;">
             <span class="img-placeholder-label">Foto: Der Food-Anhänger<br>von außen</span>
@@ -229,12 +271,16 @@
         </div>
       </div>
 
+      <!-- Hinweis unter der Galerie -->
       <p style="text-align:center; margin-top:3rem; font-size:0.9rem; color:var(--ink-soft);">Eigene Fotos können jederzeit eingefügt werden — Platzhalter werden durch echte Bilder ersetzt.</p>
     </div>
   </section>
 
 </main>
 
+<!-- ============================================================
+     FOOTER — gleich auf allen Seiten
+     ============================================================ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
@@ -270,7 +316,14 @@
   </div>
 </footer>
 
+<!-- ============================================================
+     JAVASCRIPT
+     1. Filter-Buttons: Markiert den angeklickten Button als aktiv
+        (filtert aktuell noch nicht die Bilder)
+     2. Hamburger-Menü: Öffnet/schließt die mobile Navigation
+     ============================================================ -->
 <script>
+  // Filter-Button Klick-Handler
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -278,6 +331,7 @@
     });
   });
 
+  // Hamburger-Menü
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {

@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Über uns – Günter's Baumstriezelei</title>
+
+  <!-- Google Fonts einbinden -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700;900&family=Sacramento&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
+  <!-- Gemeinsames Stylesheet für alle Seiten -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Seitenspezifische Styles nur für diese Seite -->
   <style>
+    /* Hero-Bereich oben */
     .page-hero {
       background: var(--green-deep);
       padding: 5rem 2rem 4rem;
@@ -15,12 +21,14 @@
     .page-hero-breadcrumb { font-size: 0.78rem; color: #d4b890; margin-bottom: 1.2rem; }
     .page-hero-breadcrumb a { color: var(--amber); }
 
+    /* Bio-Bereich: Portrait links (sticky), Text rechts */
     .bio-grid {
       display: grid;
       grid-template-columns: 380px 1fr;
       gap: 5rem;
       align-items: start;
     }
+    /* Portrait bleibt beim Scrollen sichtbar */
     .bio-portrait {
       position: sticky;
       top: 96px;
@@ -37,6 +45,7 @@
       margin-top: 0.75rem;
       font-style: italic;
     }
+    /* Fließtext im Bio-Bereich */
     .bio-text p {
       color: var(--ink-soft);
       line-height: 1.9;
@@ -45,6 +54,7 @@
     }
     .bio-text p strong { color: var(--ink); }
 
+    /* Hervorgehobenes Zitat */
     .pull-quote {
       border-left: 4px solid var(--amber);
       padding: 1.25rem 1.5rem;
@@ -61,6 +71,7 @@
       line-height: 1.5 !important;
     }
 
+    /* Statistik-Kästchen (20+ Jahre, 100% Handarbeit, ∞ Leidenschaft) */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -91,6 +102,7 @@
       color: var(--ink-soft);
     }
 
+    /* Werte-Raster (Handwerk, Frische, Leidenschaft) */
     .values-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -113,6 +125,7 @@
     }
     .value-desc { font-size: 0.87rem; color: var(--ink-soft); line-height: 1.65; }
 
+    /* Responsive Anpassungen */
     @media (max-width: 900px) {
       .bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .bio-portrait { position: static; }
@@ -124,6 +137,9 @@
 </head>
 <body>
 
+<!-- ============================================================
+     NAVIGATION — gleich auf allen Seiten
+     ============================================================ -->
 <nav class="site-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -146,6 +162,9 @@
 
 <main class="page-content">
 
+  <!-- ============================================================
+       HERO-BEREICH — grüner Kopfbereich mit Seitentitel
+       ============================================================ -->
   <div class="page-hero">
     <p class="page-hero-breadcrumb"><a href="index.html">Startseite</a> › Über uns</p>
     <p class="section-label">Die Menschen hinter dem Marktstand</p>
@@ -154,15 +173,25 @@
   </div>
   <div class="wood-bar"></div>
 
+  <!-- ============================================================
+       SEKTION 1: BIO-BEREICH — Portrait + Geschichte
+       Portrait-Bild links (bleibt beim Scrollen sichtbar),
+       der Text scrollt rechts daneben.
+       Um das Bild zu ersetzen: .img-placeholder durch <img src="..."> ersetzen
+       ============================================================ -->
   <section class="section section--white">
     <div class="container">
       <div class="bio-grid">
+
+        <!-- Linke Spalte: Portrait-Foto -->
         <div class="bio-portrait">
           <div class="img-placeholder portrait-img">
             <span class="img-placeholder-label">Foto: Portrait Günter<br>am Marktstand</span>
           </div>
           <p class="portrait-caption">Günter — Gründer &amp; Betreiber<br>Günter's Baumstriezelei, Linz</p>
         </div>
+
+        <!-- Rechte Spalte: Texte -->
         <div class="bio-text">
           <p class="section-label">Unsere Geschichte</p>
           <h2 class="section-title">Hallo, wir sind<br>Günter's Baumstriezelei</h2>
@@ -170,6 +199,7 @@
 
           <p>Was als Leidenschaft begann, ist heute unser Beruf — und wir würden es kein einziges Mal anders machen. Seit über <strong>20 Jahren</strong> backen wir Baumstriezel und sind damit auf den schönsten Märkten Österreichs unterwegs.</p>
 
+          <!-- Hervorgehobenes Zitat -->
           <div class="pull-quote">
             <p>„Wenn die Leute den Duft wahrnehmen und lächeln — das ist für uns das Schönste an diesem Beruf."</p>
           </div>
@@ -180,6 +210,7 @@
 
           <p>Besonders am Herzen liegt uns die <strong>Qualität</strong>: Frische Zutaten, kein Kompromiss beim Handwerk, jedes Baumstriezel einzeln mit Hand geformt. Das ist unser Versprechen — heute genauso wie vor 20 Jahren.</p>
 
+          <!-- Statistik-Kästchen -->
           <div class="stats-row">
             <div class="stat-box">
               <div class="stat-number">20+</div>
@@ -202,22 +233,28 @@
     </div>
   </section>
 
+  <!-- ============================================================
+       SEKTION 2: UNSERE WERTE — 3 Karten (Handwerk, Frische, Leidenschaft)
+       ============================================================ -->
   <section class="section section--cream">
     <div class="container">
       <p class="section-label">Wofür wir stehen</p>
       <h2 class="section-title">Unsere Werte</h2>
       <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
       <div class="values-grid">
+        <!-- Wert 1: Handwerk -->
         <div class="value-item">
           <div class="value-icon">🤲</div>
           <p class="value-title">Handwerk</p>
           <p class="value-desc">Jedes Baumstriezel wird von Hand geformt. Kein Automat, keine Abkürzung — nur echte Handarbeit.</p>
         </div>
+        <!-- Wert 2: Frische -->
         <div class="value-item">
           <div class="value-icon">🌿</div>
           <p class="value-title">Frische</p>
           <p class="value-desc">Frisch gebacken, immer. Wir bereiten alles direkt am Stand zu — man sieht und riecht den Unterschied.</p>
         </div>
+        <!-- Wert 3: Leidenschaft -->
         <div class="value-item">
           <div class="value-icon">❤️</div>
           <p class="value-title">Leidenschaft</p>
@@ -229,6 +266,9 @@
 
 </main>
 
+<!-- ============================================================
+     FOOTER — gleich auf allen Seiten
+     ============================================================ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
@@ -264,6 +304,7 @@
   </div>
 </footer>
 
+<!-- Hamburger-Menü Script -->
 <script>
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');

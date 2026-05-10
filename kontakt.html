@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt – Günter's Baumstriezelei</title>
+
+  <!-- Google Fonts einbinden -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700;900&family=Sacramento&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
+  <!-- Gemeinsames Stylesheet für alle Seiten -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Seitenspezifische Styles nur für diese Seite -->
   <style>
+    /* Hero-Bereich oben */
     .page-hero {
       background: var(--green-deep);
       padding: 5rem 2rem 4rem;
@@ -15,6 +21,7 @@
     .page-hero-breadcrumb { font-size: 0.78rem; color: #d4b890; margin-bottom: 1.2rem; }
     .page-hero-breadcrumb a { color: var(--amber); }
 
+    /* Layout: Formular links, Seitenleiste rechts */
     .contact-layout {
       display: grid;
       grid-template-columns: 1fr 420px;
@@ -22,6 +29,7 @@
       align-items: start;
     }
 
+    /* Kontaktformular-Karte */
     .contact-form {
       background: var(--white);
       border-radius: var(--radius-lg);
@@ -42,11 +50,13 @@
       line-height: 1.6;
     }
 
+    /* Zwei Felder nebeneinander (Vorname + Nachname) */
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
+    /* Einzelne Formular-Gruppe (Label + Input) */
     .form-group {
       margin-bottom: 1.25rem;
     }
@@ -59,6 +69,7 @@
       color: var(--ink-soft);
       margin-bottom: 0.4rem;
     }
+    /* Eingabefelder (Input, Select, Textarea) */
     .form-group input,
     .form-group select,
     .form-group textarea {
@@ -74,6 +85,7 @@
       transition: border-color 0.15s, box-shadow 0.15s;
       appearance: none;
     }
+    /* Fokus-Zustand (grüner Rahmen) */
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
@@ -84,6 +96,7 @@
       resize: vertical;
       min-height: 130px;
     }
+    /* Dropdown-Pfeil für Select-Felder */
     .form-group select {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
@@ -91,6 +104,7 @@
       padding-right: 2.5rem;
     }
 
+    /* Datenschutz-Hinweis unter dem Formular */
     .form-note {
       font-size: 0.78rem;
       color: var(--ink-soft);
@@ -98,8 +112,9 @@
       line-height: 1.6;
     }
 
+    /* Erfolgsmeldung nach dem Absenden */
     .form-success {
-      display: none;
+      display: none;          /* Wird per JavaScript eingeblendet */
       background: var(--green-light);
       border: 1.5px solid var(--green-mid);
       border-radius: var(--radius);
@@ -109,8 +124,10 @@
       margin-top: 1rem;
     }
 
+    /* Seitenleiste rechts */
     .contact-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
 
+    /* Info-Karten in der Seitenleiste */
     .info-card {
       background: var(--white);
       border-radius: var(--radius-lg);
@@ -127,6 +144,7 @@
       align-items: center;
       gap: 0.6rem;
     }
+    /* Icon vor dem Titel (über data-icon Attribut) */
     .info-card-title::before {
       content: attr(data-icon);
       font-size: 1.1rem;
@@ -141,6 +159,7 @@
     .info-line a:hover { color: var(--amber-dark); }
     .info-line strong { color: var(--ink); font-weight: 700; }
 
+    /* Buchungs-Highlight-Karte (dunkler Hintergrund) */
     .booking-highlight {
       background: var(--brown-dark);
       border-radius: var(--radius-lg);
@@ -160,6 +179,7 @@
       line-height: 1.7;
       margin-bottom: 1.25rem;
     }
+    /* Häkchen-Liste (Firmenfeiern, Weihnachtsfeiern, etc.) */
     .booking-check {
       display: flex;
       align-items: flex-start;
@@ -176,6 +196,7 @@
       margin-top: 0.05rem;
     }
 
+    /* Responsive */
     @media (max-width: 900px) {
       .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
@@ -184,6 +205,9 @@
 </head>
 <body>
 
+<!-- ============================================================
+     NAVIGATION — gleich auf allen Seiten
+     ============================================================ -->
 <nav class="site-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -206,6 +230,9 @@
 
 <main class="page-content">
 
+  <!-- ============================================================
+       HERO-BEREICH
+       ============================================================ -->
   <div class="page-hero">
     <p class="page-hero-breadcrumb"><a href="index.html">Startseite</a> › Kontakt</p>
     <p class="section-label">Schreib uns</p>
@@ -214,16 +241,27 @@
   </div>
   <div class="wood-bar"></div>
 
+  <!-- ============================================================
+       KONTAKT-BEREICH — Formular links, Infokarten rechts
+       ============================================================ -->
   <section class="section section--cream">
     <div class="container">
       <div class="contact-layout">
 
+        <!-- ====== LINKE SPALTE: Kontaktformular ====== -->
         <div>
           <div class="contact-form">
             <p class="form-title">Nachricht senden</p>
             <p class="form-subtitle">Für Buchungsanfragen bitte „Event / Buchungsanfrage" als Betreff wählen und möglichst viele Details angeben.</p>
 
+            <!--
+              FORMULAR
+              HINWEIS: Aktuell ist das Formular nur als Demo implementiert.
+              Für echtes Absenden muss ein Backend (z.B. Formspree, Netlify Forms)
+              eingebunden werden. Das action-Attribut im <form> entsprechend setzen.
+            -->
             <form id="contactForm" novalidate>
+              <!-- Vorname + Nachname nebeneinander -->
               <div class="form-row">
                 <div class="form-group">
                   <label for="fname">Vorname</label>
@@ -235,11 +273,13 @@
                 </div>
               </div>
 
+              <!-- E-Mail -->
               <div class="form-group">
                 <label for="email">E-Mail-Adresse</label>
                 <input type="email" id="email" name="email" placeholder="max@beispiel.at" required>
               </div>
 
+              <!-- Betreff (Dropdown) -->
               <div class="form-group">
                 <label for="subject">Betreff</label>
                 <select id="subject" name="subject">
@@ -251,22 +291,28 @@
                 </select>
               </div>
 
+              <!-- Zusätzliches Feld für Event-Datum
+                   Wird nur angezeigt, wenn "Event / Buchungsanfrage" gewählt wird -->
               <div class="form-group" id="eventDetails" style="display:none;">
                 <label for="eventdate">Gewünschtes Datum / Zeitraum</label>
                 <input type="text" id="eventdate" name="eventdate" placeholder="z.B. 15. Dezember 2025">
               </div>
 
+              <!-- Nachricht -->
               <div class="form-group">
                 <label for="message">Nachricht</label>
                 <textarea id="message" name="message" placeholder="Eure Nachricht an Günter…" required></textarea>
               </div>
 
+              <!-- Datenschutz-Hinweis -->
               <p class="form-note">Eure Daten werden ausschließlich zur Beantwortung eurer Anfrage verwendet und nicht an Dritte weitergegeben.</p>
 
+              <!-- Absenden-Button -->
               <button type="submit" class="btn btn-primary" style="width:100%; display:block; text-align:center;">
                 Nachricht senden
               </button>
 
+              <!-- Erfolgsmeldung (wird nach dem Absenden eingeblendet) -->
               <div class="form-success" id="formSuccess">
                 ✓ Vielen Dank für eure Nachricht! Günter meldet sich so bald wie möglich.
               </div>
@@ -274,8 +320,10 @@
           </div>
         </div>
 
+        <!-- ====== RECHTE SPALTE: Seitenleiste mit Infokarten ====== -->
         <div class="contact-sidebar">
 
+          <!-- Buchungs-Highlight-Karte -->
           <div class="booking-highlight">
             <p class="booking-highlight-title">🎉 Events &amp; Buchungen</p>
             <p class="booking-highlight-text">Günter's Baumstriezelei ist buchbar für Firmenveranstaltungen und private Events — mit allem Equipment und über 20 Jahren Erfahrung.</p>
@@ -285,12 +333,14 @@
             <div class="booking-check">Stadtfeste &amp; Veranstaltungen</div>
           </div>
 
+          <!-- E-Mail Kontakt -->
           <div class="info-card">
             <p class="info-card-title" data-icon="📬">Direkt schreiben</p>
             <p class="info-line"><a href="mailto:info@baumstriezelei.at">info@baumstriezelei.at</a></p>
             <p class="info-line" style="font-size:0.82rem; margin-top:0.25rem;">Wir antworten so schnell wie möglich.</p>
           </div>
 
+          <!-- Standort-Info -->
           <div class="info-card">
             <p class="info-card-title" data-icon="📍">Standort</p>
             <p class="info-line"><strong>Günter's Baumstriezelei</strong></p>
@@ -299,6 +349,7 @@
             <p class="info-line" style="margin-top:0.75rem; font-size:0.82rem;">Kein fester Ladenlokal — wir sind auf Märkten unterwegs. Alle Termine auf der <a href="termine.html">Terminseite</a>.</p>
           </div>
 
+          <!-- Social Media -->
           <div class="info-card">
             <p class="info-card-title" data-icon="👋">Social Media</p>
             <p class="info-line"><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook: Günter's Baumstriezelei</a></p>
@@ -312,6 +363,9 @@
 
 </main>
 
+<!-- ============================================================
+     FOOTER — gleich auf allen Seiten
+     ============================================================ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
@@ -347,20 +401,32 @@
   </div>
 </footer>
 
+<!-- ============================================================
+     JAVASCRIPT
+     1. Event-Datum: Zeigt ein zusätzliches Datumsfeld, wenn
+        "Event / Buchungsanfrage" als Betreff gewählt wird
+     2. Formular absenden: Zeigt eine Erfolgsmeldung (Demo-Modus)
+        Für echtes Absenden muss ein Backend eingebunden werden
+     3. Hamburger-Menü: Mobile Navigation öffnen/schließen
+     ============================================================ -->
 <script>
+  // Event-Datum Feld ein-/ausblenden je nach Betreff-Auswahl
   document.getElementById('subject').addEventListener('change', function() {
     document.getElementById('eventDetails').style.display =
       this.value === 'event' ? 'block' : 'none';
   });
 
+  // Demo: Formular absenden → Erfolgsmeldung anzeigen
   document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+    e.preventDefault();    // Verhindert echtes Absenden (nur Demo)
     const success = document.getElementById('formSuccess');
     success.style.display = 'block';
+    // Alle Felder deaktivieren nach dem Absenden
     this.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
     success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 
+  // Hamburger-Menü
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {

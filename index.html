@@ -3,24 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEITENTITEL — wird im Browser-Tab angezeigt -->
 <title>Günter's Baumstriezelei – Süßes zum Verlieben</title>
+
+<!-- SCHRIFTARTEN von Google Fonts
+     Alfa Slab One = Überschriften
+     Lato = Fließtext
+     Sacramento = Handschrift-Stil (z.B. "Süßes zum Verlieben")
+     Playfair Display = Unterseiten-Überschriften -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700;900&family=Sacramento&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
+
+<!-- HAUPT-STYLESHEET — alle Farben, Layouts, Abstände -->
 <link rel="stylesheet" href="styles.css">
 </head>
+
+<!-- "page-home" gibt der Startseite den dunklen Holz-Hintergrund
+     (die Unterseiten haben einen hellen Hintergrund) -->
 <body class="page-home">
 
-<!-- Navigation -->
+<!-- ============================================
+     NAVIGATION — Menüleiste oben (bleibt beim Scrollen fixiert)
+     Zum Ändern der Links: einfach href und Text anpassen
+     ============================================ -->
 <nav class="site-nav">
   <div class="nav-inner">
+    <!-- Logo links oben -->
     <a href="index.html" class="nav-logo">
       <span class="nav-logo-main">GÜNTER'S</span>
       <span class="nav-logo-sub">Baumstriezelei</span>
     </a>
+
+    <!-- Hamburger-Menü Button (nur auf Handy sichtbar) -->
     <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
+
+    <!-- Menü-Links — "active" markiert die aktuelle Seite -->
     <ul class="nav-links">
       <li><a href="index.html" class="active">Startseite</a></li>
       <li><a href="baumstriezel.html">Das Baumstriezel</a></li>
@@ -34,84 +55,93 @@
 
 <main>
 
-  <!-- Hero Banner -->
+  <!-- ============================================
+       HERO-BANNER — Großer Bereich ganz oben
+       "wood-surface" = Holztextur-Hintergrund
+       ============================================ -->
   <section class="banner-hero wood-surface">
+
+    <!-- Grüner Streifen (wie am Anhänger) -->
     <div class="green-band"></div>
 
+    <!-- Großer Titel -->
     <div class="banner-title-bar">
       <h1 class="banner-title">GÜNTERS<br><em>BAUMSTRIEZELEI</em></h1>
     </div>
 
+    <!-- Grüner Streifen -->
     <div class="green-band"></div>
 
+    <!-- Hauptbereich: Kontaktkarte links + Foto rechts -->
     <div class="banner-stage">
-      <!-- Striezel SVG decorations -->
+
+      <!-- Dekorative Baumstriezel-Zeichnungen (SVG-Grafiken)
+           Kannst du ignorieren — rein dekorativ -->
       <svg class="striezel-deco left" viewBox="0 0 120 200" fill="none" stroke="#aac26a" stroke-width="1.5">
         <ellipse cx="60" cy="20" rx="42" ry="12"/>
-        <path d="M18 20 L18 175"/>
-        <path d="M102 20 L102 175"/>
+        <path d="M18 20 L18 175"/><path d="M102 20 L102 175"/>
         <ellipse cx="60" cy="180" rx="42" ry="12"/>
-        <path d="M18 50 Q60 60 102 50"/>
-        <path d="M18 80 Q60 90 102 80"/>
-        <path d="M18 110 Q60 120 102 110"/>
-        <path d="M18 140 Q60 150 102 140"/>
-        <circle cx="38" cy="65" r="1.5" fill="#aac26a"/>
-        <circle cx="78" cy="65" r="1.5" fill="#aac26a"/>
-        <circle cx="50" cy="95" r="1.5" fill="#aac26a"/>
-        <circle cx="85" cy="95" r="1.5" fill="#aac26a"/>
-        <circle cx="40" cy="125" r="1.5" fill="#aac26a"/>
-        <circle cx="80" cy="125" r="1.5" fill="#aac26a"/>
+        <path d="M18 50 Q60 60 102 50"/><path d="M18 80 Q60 90 102 80"/>
+        <path d="M18 110 Q60 120 102 110"/><path d="M18 140 Q60 150 102 140"/>
+        <circle cx="38" cy="65" r="1.5" fill="#aac26a"/><circle cx="78" cy="65" r="1.5" fill="#aac26a"/>
+        <circle cx="50" cy="95" r="1.5" fill="#aac26a"/><circle cx="85" cy="95" r="1.5" fill="#aac26a"/>
+        <circle cx="40" cy="125" r="1.5" fill="#aac26a"/><circle cx="80" cy="125" r="1.5" fill="#aac26a"/>
       </svg>
 
       <svg class="striezel-deco right" viewBox="0 0 120 200" fill="none" stroke="#aac26a" stroke-width="1.5">
         <ellipse cx="60" cy="20" rx="42" ry="12"/>
-        <path d="M18 20 L18 175"/>
-        <path d="M102 20 L102 175"/>
+        <path d="M18 20 L18 175"/><path d="M102 20 L102 175"/>
         <ellipse cx="60" cy="180" rx="42" ry="12"/>
-        <path d="M18 50 Q60 60 102 50"/>
-        <path d="M18 80 Q60 90 102 80"/>
-        <path d="M18 110 Q60 120 102 110"/>
-        <path d="M18 140 Q60 150 102 140"/>
-        <circle cx="38" cy="65" r="1.5" fill="#aac26a"/>
-        <circle cx="78" cy="65" r="1.5" fill="#aac26a"/>
-        <circle cx="50" cy="95" r="1.5" fill="#aac26a"/>
-        <circle cx="85" cy="95" r="1.5" fill="#aac26a"/>
+        <path d="M18 50 Q60 60 102 50"/><path d="M18 80 Q60 90 102 80"/>
+        <path d="M18 110 Q60 120 102 110"/><path d="M18 140 Q60 150 102 140"/>
+        <circle cx="38" cy="65" r="1.5" fill="#aac26a"/><circle cx="78" cy="65" r="1.5" fill="#aac26a"/>
+        <circle cx="50" cy="95" r="1.5" fill="#aac26a"/><circle cx="85" cy="95" r="1.5" fill="#aac26a"/>
       </svg>
 
       <div class="banner-grid">
-        <!-- Olive contact card -->
+
+        <!-- KONTAKTKARTE (grüne Box)
+             Hier kannst du Telefonnummer, E-Mail, Social Media ändern -->
         <div class="olive-card">
           <div class="script">Süßes zum Verlieben</div>
           <div class="caps">Versüße auch du dein Event!</div>
 
+          <!-- Website -->
           <div class="contact-row">
             <span class="icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
             <a href="https://www.baumstriezelei.at">www.baumstriezelei.at</a>
           </div>
+          <!-- Telefon -->
           <div class="contact-row">
             <span class="icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <a href="tel:+436763207554">+43 676 320 7554</a>
           </div>
+          <!-- Instagram -->
           <div class="contact-row">
             <span class="icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
             <span>guenters baumstriezelei</span>
           </div>
+          <!-- Facebook -->
           <div class="contact-row">
             <span class="icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
             <span>Günter's Baumstriezelei</span>
           </div>
+          <!-- E-Mail -->
           <div class="contact-row">
             <span class="icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
             <a href="mailto:info@baumstriezelei.at">info@baumstriezelei.at</a>
           </div>
 
+          <!-- Buttons unter der Kontaktkarte -->
           <div class="olive-card-cta">
             <a href="kontakt.html" class="pill-btn solid">Jetzt buchen</a>
             <a href="termine.html" class="pill-btn">Termine</a>
           </div>
         </div>
 
-        <!-- Hero photo -->
+        <!-- HERO-FOTO rechts
+             Um das Bild zu tauschen: neues Bild in uploads/ legen
+             und hier den Dateinamen ändern -->
         <div class="hero-photo has-image">
           <img src="uploads/8f0f1d2b-b509-4098-8771-fdb4e4d7b916.png" alt="Frische Baumstriezel mit Schokolade und Zimt-Zucker">
         </div>
@@ -122,7 +152,10 @@
   </section>
 
 
-  <!-- USP Strip -->
+  <!-- ============================================
+       KENNZAHLEN-STREIFEN — Die 4 Kacheln mit Zahlen
+       Texte direkt hier ändern
+       ============================================ -->
   <section class="usp-strip wood-surface">
     <div class="usp-strip-grid">
       <div class="usp-tile">
@@ -151,7 +184,11 @@
   <div class="green-band green-band--thin"></div>
 
 
-  <!-- Was ist ein Baumstriezel -->
+  <!-- ============================================
+       WAS IST EIN BAUMSTRIEZEL — Info-Bereich
+       Links: Text, Rechts: Foto-Platzhalter
+       Um ein echtes Foto einzubauen: wie beim Hero-Foto oben
+       ============================================ -->
   <section class="about-block wood-surface">
     <div class="about-grid-2">
       <div>
@@ -161,6 +198,10 @@
         <p>Bei Günter's Baumstriezelei bleibt alles beim Ursprünglichen: handgefertigt, frisch gebacken, knusprig — genau so wie es sein soll.</p>
         <a href="baumstriezel.html" class="pill-btn solid" style="margin-top:1rem;">Mehr erfahren</a>
       </div>
+      <!-- FOTO-PLATZHALTER — ersetze durch echtes Bild:
+           <div class="about-photo has-image">
+             <img src="uploads/DEIN-BILD.jpg" alt="Beschreibung">
+           </div> -->
       <div class="about-photo">
         <span>Foto: Baumstriezel<br>auf dem Grill</span>
       </div>
@@ -170,7 +211,11 @@
   <div class="green-band"></div>
 
 
-  <!-- Märkte -->
+  <!-- ============================================
+       MÄRKTE — Die grünen Karten mit den Markt-Infos
+       Zum Hinzufügen: einfach einen neuen <div class="market-tile">
+       Block kopieren und Text ändern
+       ============================================ -->
   <section class="markets-block wood-surface">
     <div class="markets-block-head">
       <div class="heading-script">Wo wir zu finden sind</div>
@@ -179,6 +224,7 @@
     </div>
 
     <div class="markets-2">
+      <!-- Jede Karte hat: season (Jahreszeit), name (Marktname), desc (Beschreibung) -->
       <div class="market-tile">
         <div class="season">Frühling &amp; Herbst</div>
         <div class="name">Urfahranermarkt</div>
@@ -219,7 +265,9 @@
   <div class="green-band"></div>
 
 
-  <!-- Buchen -->
+  <!-- ============================================
+       BUCHUNGS-BEREICH — Aufruf zum Buchen
+       ============================================ -->
   <section class="booking-block wood-surface">
     <div class="booking-card">
       <div class="heading-script">Für Firmen &amp; Private Events</div>
@@ -233,16 +281,21 @@
 
 </main>
 
-<!-- Footer -->
+<!-- ============================================
+     FOOTER — Fußzeile auf jeder Seite gleich
+     Kontaktdaten und Navigation
+     ============================================ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
+      <!-- Spalte 1: Logo + Beschreibung -->
       <div>
         <span class="footer-logo-main">GÜNTER'S</span>
         <span class="footer-logo-sub">Baumstriezelei</span>
         <p class="footer-tagline">Süßes zum Verlieben</p>
         <p class="footer-desc">Frisch gebackene Baumstriezel auf Märkten in ganz Oberösterreich. Seit über 20 Jahren mit Leidenschaft dabei.</p>
       </div>
+      <!-- Spalte 2: Navigation -->
       <div>
         <p class="footer-heading">Navigation</p>
         <ul class="footer-links">
@@ -254,6 +307,7 @@
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </div>
+      <!-- Spalte 3: Kontakt -->
       <div>
         <p class="footer-heading">Kontakt</p>
         <p class="footer-contact-item">Günter's Baumstriezelei</p>
@@ -269,6 +323,10 @@
   </div>
 </footer>
 
+<!-- ============================================
+     JAVASCRIPT — Hamburger-Menü für Handy-Ansicht
+     Muss nicht geändert werden
+     ============================================ -->
 <script>
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
