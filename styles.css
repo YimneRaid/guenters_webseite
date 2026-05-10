@@ -243,7 +243,9 @@ a:hover { color: var(--amber-dark); }
   letter-spacing: 0.02em;
   /* Grüner Schatten + schwarzer Tiefenschatten */
   text-shadow: 4px 4px 0 var(--olive), 5px 5px 0 rgba(0,0,0,0.3);
-  margin: 0;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
 }
 .banner-title em {
   font-style: normal;
@@ -951,6 +953,22 @@ a:hover { color: var(--amber-dark); }
   .banner-title-bar {
     padding: 2rem 1rem 2rem;
   }
+
+  /* Bild auf Mobile: am rechten Rand, aber nicht rausragend */
+  .hero-photo.has-image img {
+    width: 100%;
+    margin-left: 0;
+    margin-right: -2rem;
+    transform: scaleX(1.1);
+    transform-origin: right center;
+  }
+  .hero-photo.has-image {
+    overflow: hidden;
+  }
+  .banner-stage {
+    padding: 2rem 0 2rem 1rem;
+    overflow: hidden;
+  }
 }
 
 /* Sehr kleine Smartphones (unter 480px) */
@@ -961,5 +979,6 @@ a:hover { color: var(--amber-dark); }
   .banner-title {
     font-size: clamp(1.5rem, 8vw, 2.4rem);
     letter-spacing: 0;
+    text-shadow: 3px 3px 0 var(--olive), 4px 4px 0 rgba(0,0,0,0.3);
   }
 }
