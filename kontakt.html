@@ -219,9 +219,10 @@
     </button>
     <ul class="nav-links">
       <li><a href="index.html">Startseite</a></li>
-      <li><a href="baumstriezel.html">Das Baumstriezel</a></li>
+      <li><a href="baumstriezel.html">Der Baumstriezel</a></li>
       <li><a href="ueber-guenter.html">Über uns</a></li>
-      <li><a href="galerie.html">Galerie</a></li>
+      <!-- Galerie vorübergehend deaktiviert -->
+      <!-- <li><a href="galerie.html">Galerie</a></li> -->
       <li><a href="termine.html">Termine</a></li>
       <li><a href="kontakt.html" class="nav-book-btn active">Kontakt &amp; Buchen</a></li>
     </ul>
@@ -255,12 +256,20 @@
             <p class="form-subtitle">Für Buchungsanfragen bitte „Event / Buchungsanfrage" als Betreff wählen und möglichst viele Details angeben.</p>
 
             <!--
-              FORMULAR
-              HINWEIS: Aktuell ist das Formular nur als Demo implementiert.
-              Für echtes Absenden muss ein Backend (z.B. Formspree, Netlify Forms)
-              eingebunden werden. Das action-Attribut im <form> entsprechend setzen.
+              FORMULAR — sendet über Formspree an info@baumstriezelei.at
+              Formspree-Endpunkt muss nach Registrierung mit der echten Form-ID
+              ersetzt werden (siehe Anleitung unten).
+              Aktuell: https://formspree.io/f/DEINE_FORM_ID
+              → Auf https://formspree.io registrieren, neues Formular erstellen,
+                 die Form-ID (z.B. "xpzvqkla") hier einsetzen.
             -->
-            <form id="contactForm" novalidate>
+            <form id="contactForm" action="https://formspree.io/f/DEINE_FORM_ID" method="POST" novalidate>
+              <!-- Formspree: Weiterleitung nach Absenden zurück zur Kontaktseite -->
+              <input type="hidden" name="_next" value="https://www.baumstriezelei.at/kontakt.html?success=1">
+              <!-- Formspree: E-Mail-Betreff -->
+              <input type="hidden" name="_subject" value="Neue Anfrage über baumstriezelei.at">
+              <!-- Formspree: Honeypot gegen Spam-Bots (unsichtbares Feld) -->
+              <input type="text" name="_gotcha" style="display:none">
               <!-- Vorname + Nachname nebeneinander -->
               <div class="form-row">
                 <div class="form-group">
@@ -379,9 +388,10 @@
         <p class="footer-heading">Navigation</p>
         <ul class="footer-links">
           <li><a href="index.html">Startseite</a></li>
-          <li><a href="baumstriezel.html">Das Baumstriezel</a></li>
+          <li><a href="baumstriezel.html">Der Baumstriezel</a></li>
           <li><a href="ueber-guenter.html">Über uns</a></li>
-          <li><a href="galerie.html">Galerie</a></li>
+          <!-- Galerie vorübergehend deaktiviert -->
+          <!-- <li><a href="galerie.html">Galerie</a></li> -->
           <li><a href="termine.html">Termine</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
@@ -416,15 +426,15 @@
       this.value === 'event' ? 'block' : 'none';
   });
 
-  // Demo: Formular absenden → Erfolgsmeldung anzeigen
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();    // Verhindert echtes Absenden (nur Demo)
+  // Erfolgsmeldung anzeigen, wenn Formspree nach dem Absenden
+  // zurück auf diese Seite leitet (mit ?success=1 in der URL)
+  if (window.location.search.includes('success=1')) {
     const success = document.getElementById('formSuccess');
+    const form = document.getElementById('contactForm');
     success.style.display = 'block';
-    // Alle Felder deaktivieren nach dem Absenden
-    this.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
+    form.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
     success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  });
+  }
 
   // Hamburger-Menü
   const toggle = document.querySelector('.nav-toggle');

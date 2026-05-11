@@ -195,9 +195,10 @@
     </button>
     <ul class="nav-links">
       <li><a href="index.html">Startseite</a></li>
-      <li><a href="baumstriezel.html">Das Baumstriezel</a></li>
+      <li><a href="baumstriezel.html">Der Baumstriezel</a></li>
       <li><a href="ueber-guenter.html">Über uns</a></li>
-      <li><a href="galerie.html">Galerie</a></li>
+      <!-- Galerie vorübergehend deaktiviert -->
+      <!-- <li><a href="galerie.html">Galerie</a></li> -->
       <li><a href="termine.html" class="active">Termine</a></li>
       <li><a href="kontakt.html" class="nav-book-btn">Kontakt &amp; Buchen</a></li>
     </ul>
@@ -235,10 +236,10 @@
       <!-- Saison-Tabs -->
       <div class="season-tabs">
         <button class="season-tab active" data-panel="upcoming">Kommende Termine</button>
-        <button class="season-tab" data-panel="fruehling">Frühling</button>
         <button class="season-tab" data-panel="sommer">Sommer</button>
         <button class="season-tab" data-panel="herbst">Herbst</button>
         <button class="season-tab" data-panel="winter">Winter</button>
+        <button class="season-tab" data-panel="vergangene">Vergangene</button>
       </div>
 
       <!-- ====== Panel: Kommende Termine ====== -->
@@ -246,58 +247,7 @@
         <p class="section-label" style="margin-bottom:1.5rem;">Nächste Veranstaltungen</p>
         <div class="event-list">
 
-          <!-- Termin: Urfahranermarkt Frühling -->
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">—</div>
-              <div class="event-date-month">Demnächst</div>
-              <div class="event-date-year">2025</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Urfahranermarkt Frühling</p>
-              <p class="event-location">Linz, Donaulände</p>
-              <span class="event-tag tag-spring">Frühling</span>
-            </div>
-            <div class="event-cta">
-              <a href="kontakt.html" class="btn btn-outline-dark" style="font-size:0.78rem; padding:0.5rem 1rem;">Infos</a>
-            </div>
-          </div>
-
-          <!-- Termin: Streetfood Festival Wels -->
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">—</div>
-              <div class="event-date-month">Sommer</div>
-              <div class="event-date-year">2025</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Streetfood Festival Salzkammergut – Wels</p>
-              <p class="event-location">Wels, Oberösterreich</p>
-              <span class="event-tag tag-summer">Sommer</span>
-            </div>
-            <div class="event-cta">
-              <a href="kontakt.html" class="btn btn-outline-dark" style="font-size:0.78rem; padding:0.5rem 1rem;">Infos</a>
-            </div>
-          </div>
-
-          <!-- Termin: Streetfood Festival Gmunden -->
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">—</div>
-              <div class="event-date-month">Sommer</div>
-              <div class="event-date-year">2025</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Streetfood Festival Salzkammergut – Gmunden</p>
-              <p class="event-location">Gmunden, Traunsee</p>
-              <span class="event-tag tag-summer">Sommer</span>
-            </div>
-            <div class="event-cta">
-              <a href="kontakt.html" class="btn btn-outline-dark" style="font-size:0.78rem; padding:0.5rem 1rem;">Infos</a>
-            </div>
-          </div>
-
-          <!-- Termin: Bubblesdays -->
+          <!-- Termin: Bubblesdays ✓ BESTÄTIGT -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -314,7 +264,7 @@
             </div>
           </div>
 
-          <!-- Termin: Weinfest -->
+          <!-- Termin: Streetfood Festival Wels ✓ BESTÄTIGT -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -322,8 +272,8 @@
               <div class="event-date-year">2025</div>
             </div>
             <div class="event-info">
-              <p class="event-name">Weinfest</p>
-              <p class="event-location">Oberösterreich</p>
+              <p class="event-name">Streetfood Festival Salzkammergut – Wels</p>
+              <p class="event-location">Wels, Oberösterreich</p>
               <span class="event-tag tag-summer">Sommer</span>
             </div>
             <div class="event-cta">
@@ -331,7 +281,24 @@
             </div>
           </div>
 
-          <!-- Termin: Urfahranermarkt Herbst -->
+          <!-- Termin: Streetfood Festival Gmunden ✓ BESTÄTIGT -->
+          <div class="event-card">
+            <div class="event-date">
+              <div class="event-date-day">—</div>
+              <div class="event-date-month">Sommer</div>
+              <div class="event-date-year">2025</div>
+            </div>
+            <div class="event-info">
+              <p class="event-name">Streetfood Festival Salzkammergut – Gmunden</p>
+              <p class="event-location">Gmunden, Traunsee</p>
+              <span class="event-tag tag-summer">Sommer</span>
+            </div>
+            <div class="event-cta">
+              <a href="kontakt.html" class="btn btn-outline-dark" style="font-size:0.78rem; padding:0.5rem 1rem;">Infos</a>
+            </div>
+          </div>
+
+          <!-- Termin: Urfahranermarkt Herbst — IN PLANUNG -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -341,14 +308,14 @@
             <div class="event-info">
               <p class="event-name">Urfahranermarkt Herbst</p>
               <p class="event-location">Linz, Donaulände</p>
-              <span class="event-tag">Herbst</span>
+              <span class="event-tag">In Planung</span>
             </div>
             <div class="event-cta">
               <a href="kontakt.html" class="btn btn-outline-dark" style="font-size:0.78rem; padding:0.5rem 1rem;">Infos</a>
             </div>
           </div>
 
-          <!-- Termin: Weihnachtsmarkt -->
+          <!-- Termin: Weihnachtsmarkt ✓ BESTÄTIGT, Standort offen -->
           <div class="event-card">
             <div class="event-date">
               <div class="event-date-day">—</div>
@@ -357,7 +324,7 @@
             </div>
             <div class="event-info">
               <p class="event-name">Weihnachtsmarkt</p>
-              <p class="event-location">Linz &amp; Umgebung</p>
+              <p class="event-location">Standort wird noch bekannt gegeben</p>
               <span class="event-tag tag-winter">Winter</span>
             </div>
             <div class="event-cta">
@@ -367,28 +334,10 @@
 
         </div>
 
-        <!-- Hinweis zu fehlenden Daten -->
+        <!-- Hinweis -->
         <p style="margin-top:2rem; font-size:0.87rem; color:var(--ink-soft);">
           ℹ️ Genaue Daten werden sobald wie möglich ergänzt. Für aktuelle Infos gerne per E-Mail melden oder auf Facebook folgen.
         </p>
-      </div>
-
-      <!-- ====== Panel: Frühling ====== -->
-      <div class="season-panel" id="panel-fruehling">
-        <div class="event-list">
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">Apr</div>
-              <div class="event-date-month">Frühling</div>
-              <div class="event-date-year">jährlich</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Urfahranermarkt Frühling</p>
-              <p class="event-location">Linz, Donaulände</p>
-              <span class="event-tag tag-spring">Frühling</span>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- ====== Panel: Sommer ====== -->
@@ -396,38 +345,38 @@
         <div class="event-list">
           <div class="event-card">
             <div class="event-date">
-              <div class="event-date-day">Jun</div>
+              <div class="event-date-day">—</div>
               <div class="event-date-month">Sommer</div>
-              <div class="event-date-year">jährlich</div>
+              <div class="event-date-year">2025</div>
+            </div>
+            <div class="event-info">
+              <p class="event-name">Bubblesdays</p>
+              <p class="event-location">Oberösterreich</p>
+              <span class="event-tag tag-summer">Bestätigt</span>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="event-date">
+              <div class="event-date-day">—</div>
+              <div class="event-date-month">Sommer</div>
+              <div class="event-date-year">2025</div>
             </div>
             <div class="event-info">
               <p class="event-name">Streetfood Salzkammergut – Wels</p>
               <p class="event-location">Wels, Oberösterreich</p>
-              <span class="event-tag tag-summer">Sommer</span>
+              <span class="event-tag tag-summer">Bestätigt</span>
             </div>
           </div>
           <div class="event-card">
             <div class="event-date">
-              <div class="event-date-day">Jul</div>
+              <div class="event-date-day">—</div>
               <div class="event-date-month">Sommer</div>
-              <div class="event-date-year">jährlich</div>
+              <div class="event-date-year">2025</div>
             </div>
             <div class="event-info">
               <p class="event-name">Streetfood Salzkammergut – Gmunden</p>
               <p class="event-location">Gmunden, Traunsee</p>
-              <span class="event-tag tag-summer">Sommer</span>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">Som</div>
-              <div class="event-date-month">Sommer</div>
-              <div class="event-date-year">jährlich</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Bubblesdays &amp; Weinfest</p>
-              <p class="event-location">Oberösterreich</p>
-              <span class="event-tag tag-summer">Sommer</span>
+              <span class="event-tag tag-summer">Bestätigt</span>
             </div>
           </div>
         </div>
@@ -438,14 +387,14 @@
         <div class="event-list">
           <div class="event-card">
             <div class="event-date">
-              <div class="event-date-day">Okt</div>
+              <div class="event-date-day">—</div>
               <div class="event-date-month">Herbst</div>
-              <div class="event-date-year">jährlich</div>
+              <div class="event-date-year">2025</div>
             </div>
             <div class="event-info">
               <p class="event-name">Urfahranermarkt Herbst</p>
               <p class="event-location">Linz, Donaulände</p>
-              <span class="event-tag">Herbst</span>
+              <span class="event-tag">In Planung</span>
             </div>
           </div>
         </div>
@@ -456,14 +405,76 @@
         <div class="event-list">
           <div class="event-card">
             <div class="event-date">
+              <div class="event-date-day">—</div>
+              <div class="event-date-month">Dez.</div>
+              <div class="event-date-year">2025</div>
+            </div>
+            <div class="event-info">
+              <p class="event-name">Weihnachtsmarkt</p>
+              <p class="event-location">Standort wird noch bekannt gegeben</p>
+              <span class="event-tag tag-winter">Bestätigt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== Panel: Vergangene Termine ====== -->
+      <div class="season-panel" id="panel-vergangene">
+        <p class="section-label" style="margin-bottom:1.5rem;">Bereits stattgefunden</p>
+        <div class="event-list">
+          <div class="event-card">
+            <div class="event-date">
+              <div class="event-date-day">Apr</div>
+              <div class="event-date-month">2025</div>
+            </div>
+            <div class="event-info">
+              <p class="event-name">Urfahranermarkt Frühling</p>
+              <p class="event-location">Linz, Donaulände</p>
+              <span class="event-tag tag-spring">Frühling 2025</span>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="event-date">
               <div class="event-date-day">Dez</div>
-              <div class="event-date-month">Winter</div>
-              <div class="event-date-year">jährlich</div>
+              <div class="event-date-month">2024</div>
             </div>
             <div class="event-info">
               <p class="event-name">Weihnachtsmarkt</p>
               <p class="event-location">Linz &amp; Umgebung</p>
-              <span class="event-tag tag-winter">Winter</span>
+              <span class="event-tag tag-winter">Winter 2024</span>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="event-date">
+              <div class="event-date-day">Okt</div>
+              <div class="event-date-month">2024</div>
+            </div>
+            <div class="event-info">
+              <p class="event-name">Urfahranermarkt Herbst</p>
+              <p class="event-location">Linz, Donaulände</p>
+              <span class="event-tag">Herbst 2024</span>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="event-date">
+              <div class="event-date-day">Som</div>
+              <div class="event-date-month">2024</div>
+            </div>
+            <div class="event-info">
+              <p class="event-name">Leondinger Stadtfest</p>
+              <p class="event-location">Leonding, Oberösterreich</p>
+              <span class="event-tag tag-summer">Sommer 2024</span>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="event-date">
+              <div class="event-date-day">—</div>
+              <div class="event-date-month">Diverse</div>
+            </div>
+            <div class="event-info">
+              <p class="event-name">Private Firmenmärkte</p>
+              <p class="event-location">Verschiedene Standorte, Oberösterreich</p>
+              <span class="event-tag">Events</span>
             </div>
           </div>
         </div>
@@ -501,9 +512,10 @@
         <p class="footer-heading">Navigation</p>
         <ul class="footer-links">
           <li><a href="index.html">Startseite</a></li>
-          <li><a href="baumstriezel.html">Das Baumstriezel</a></li>
+          <li><a href="baumstriezel.html">Der Baumstriezel</a></li>
           <li><a href="ueber-guenter.html">Über uns</a></li>
-          <li><a href="galerie.html">Galerie</a></li>
+          <!-- Galerie vorübergehend deaktiviert -->
+          <!-- <li><a href="galerie.html">Galerie</a></li> -->
           <li><a href="termine.html">Termine</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
