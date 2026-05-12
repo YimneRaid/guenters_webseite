@@ -7,12 +7,7 @@
 <!-- SEITENTITEL — wird im Browser-Tab angezeigt -->
 <title>Günter's Baumstriezelei – Süßes zum Verlieben</title>
 
-<!-- SCHRIFTARTEN von Google Fonts
-     Alfa Slab One = Überschriften
-     Lato = Fließtext
-     Sacramento = Handschrift-Stil (z.B. "Süßes zum Verlieben")
-     Playfair Display = Unterseiten-Überschriften -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700;900&family=Sacramento&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
+<!-- Schriftarten werden lokal aus fonts/ geladen (DSGVO-konform, siehe styles.css) -->
 
 <!-- HAUPT-STYLESHEET — alle Farben, Layouts, Abstände -->
 <link rel="stylesheet" href="styles.css">
@@ -44,7 +39,7 @@
     <!-- Menü-Links — "active" markiert die aktuelle Seite -->
     <ul class="nav-links">
       <li><a href="index.html" class="active">Startseite</a></li>
-      <li><a href="baumstriezel.html">Der Baumstriezel</a></li>
+      <li><a href="baumstriezel.html">Das Baumstriezel</a></li>
       <li><a href="ueber-guenter.html">Über uns</a></li>
       <!-- Galerie vorübergehend deaktiviert — noch keine Bilder vorhanden -->
       <!-- <li><a href="galerie.html">Galerie</a></li> -->
@@ -199,13 +194,9 @@
         <p>Bei Günter's Baumstriezelei bleibt alles beim Ursprünglichen: handgefertigt, frisch gebacken, knusprig — genau so wie es sein soll.</p>
         <a href="baumstriezel.html" class="pill-btn solid" style="margin-top:1rem;">Mehr erfahren</a>
       </div>
-      <!-- FOTO-PLATZHALTER — ersetze durch echtes Bild:
-           <div class="about-photo has-image">
-             <img src="uploads/DEIN-BILD.jpg" alt="Beschreibung">
-           </div> -->
-      <div class="about-photo">
-        <span>Foto: Baumstriezel<br>auf dem Grill</span>
-      </div>
+           <div>
+             <img src="uploads/933929d5-e965-45f5-ab84-27c61e8e0952.png" alt="Beschreibung">
+           </div> 
     </div>
   </section>
 
@@ -296,7 +287,7 @@
         <p class="footer-heading">Navigation</p>
         <ul class="footer-links">
           <li><a href="index.html">Startseite</a></li>
-          <li><a href="baumstriezel.html">Der Baumstriezel</a></li>
+          <li><a href="baumstriezel.html">Das Baumstriezel</a></li>
           <li><a href="ueber-guenter.html">Über uns</a></li>
           <!-- Galerie vorübergehend deaktiviert -->
           <!-- <li><a href="galerie.html">Galerie</a></li> -->
@@ -334,6 +325,12 @@
     });
   }
 </script>
+
+<!-- GoatCounter — Besucherstatistiken ohne Cookies (DSGVO-konform)
+     Nach Registrierung auf goatcounter.com den Wert "DEIN-SEITENCODE"
+     durch deinen Code ersetzen (z.B. "baumstriezelei") -->
+<script data-goatcounter="https://DEIN-SEITENCODE.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 
 </body>
 </html>
