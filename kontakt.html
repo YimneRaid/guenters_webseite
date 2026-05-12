@@ -195,6 +195,25 @@
       margin-top: 0.05rem;
     }
 
+    /* Fehlermeldung unter Eingabefeldern */
+    .form-error {
+      font-size: 0.78rem;
+      color: #c0392b;
+      margin-top: 0.3rem;
+      display: none;
+    }
+    /* Rote Umrandung bei ungültigen Feldern */
+    .form-group.has-error input,
+    .form-group.has-error textarea {
+      border-color: #c0392b;
+      box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
+    }
+    /* Deaktivierter Button */
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -274,10 +293,12 @@
                 <div class="form-group">
                   <label for="fname">Vorname</label>
                   <input type="text" id="fname" name="fname" placeholder="Max" required>
+                  <p class="form-error" id="fname-error">Bitte Vorname eingeben.</p>
                 </div>
                 <div class="form-group">
                   <label for="lname">Nachname</label>
                   <input type="text" id="lname" name="lname" placeholder="Mustermann" required>
+                  <p class="form-error" id="lname-error">Bitte Nachname eingeben.</p>
                 </div>
               </div>
 
@@ -285,6 +306,7 @@
               <div class="form-group">
                 <label for="email">E-Mail-Adresse</label>
                 <input type="email" id="email" name="email" placeholder="max@beispiel.at" required>
+                <p class="form-error" id="email-error">Bitte eine gültige E-Mail-Adresse eingeben.</p>
               </div>
 
               <!-- Betreff (Dropdown) -->
@@ -310,19 +332,20 @@
               <div class="form-group">
                 <label for="message">Nachricht</label>
                 <textarea id="message" name="message" placeholder="Eure Nachricht an Günter…" required></textarea>
+                <p class="form-error" id="message-error">Bitte eine Nachricht eingeben.</p>
               </div>
 
               <!-- Datenschutz-Hinweis -->
-              <p class="form-note">Eure Daten werden ausschließlich zur Beantwortung eurer Anfrage verwendet und nicht an Dritte weitergegeben.</p>
+              <p class="form-note">Ihre Daten werden ausschließlich zur Beantwortung eurer Anfrage verwendet und nicht an Dritte weitergegeben.</p>
 
               <!-- Absenden-Button -->
-              <button type="submit" class="btn btn-primary" style="width:100%; display:block; text-align:center;">
+              <button type="submit" class="btn btn-primary" id="submitBtn" disabled style="width:100%; display:block; text-align:center;">
                 Nachricht senden
               </button>
 
               <!-- Erfolgsmeldung (wird nach dem Absenden eingeblendet) -->
               <div class="form-success" id="formSuccess">
-                ✓ Vielen Dank für eure Nachricht! Günter meldet sich so bald wie möglich.
+                ✓ Vielen Dank für eure Nachricht! Wir melden uns so bald wie möglich.
               </div>
             </form>
           </div>
@@ -419,10 +442,49 @@
      3. Hamburger-Menü: Mobile Navigation öffnen/schließen
      ============================================================ -->
 <script>
+  // Formular beim Laden leeren (damit nach Refresh alles leer ist)
+  document.getElementById('contactForm').reset();
+
   // Event-Datum Feld ein-/ausblenden je nach Betreff-Auswahl
   document.getElementById('subject').addEventListener('change', function() {
     document.getElementById('eventDetails').style.display =
       this.value === 'event' ? 'block' : 'none';
+  });
+
+  // Validierung — prüft alle Pflichtfelder und aktiviert/deaktiviert den Button
+  var fname = document.getElementById('fname');
+  var lname = document.getElementById('lname');
+  var email = document.getElementById('email');
+  var message = document.getElementById('message');
+  var submitBtn = document.getElementById('submitBtn');
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function validateField(input, errorId, check) {
+    var errorEl = document.getElementById(errorId);
+    var group = input.closest('.form-group');
+    if (!check()) {
+      group.classList.add('has-error');
+      errorEl.style.display = 'block';
+      return false;
+    } else {
+      group.classList.remove('has-error');
+      errorEl.style.display = 'none';
+      return true;
+    }
+  }
+
+  function validateAll() {
+    var v1 = validateField(fname, 'fname-error', function() { return fname.value.trim() !== ''; });
+    var v2 = validateField(lname, 'lname-error', function() { return lname.value.trim() !== ''; });
+    var v3 = validateField(email, 'email-error', function() { return emailRegex.test(email.value.trim()); });
+    var v4 = validateField(message, 'message-error', function() { return message.value.trim() !== ''; });
+    submitBtn.disabled = !(v1 && v2 && v3 && v4);
+  }
+
+  // Bei jeder Eingabe validieren
+  [fname, lname, email, message].forEach(function(el) {
+    el.addEventListener('input', validateAll);
+    el.addEventListener('blur', validateAll);
   });
 
   // Formular per AJAX senden — Besucher bleibt auf der Seite
