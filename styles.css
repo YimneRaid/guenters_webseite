@@ -178,7 +178,7 @@ a:hover { color: var(--amber-dark); }
    Wird auf der Startseite für große Bereiche verwendet.
    Das Bild wird mit "multiply" über die Grundfarbe gelegt. */
 .wood-surface {
-  background-image: url("uploads/Holzhintergrund.jpg");
+  background-image: url("uploads/Holzhintergrund.webp");
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
