@@ -425,15 +425,37 @@
       this.value === 'event' ? 'block' : 'none';
   });
 
-  // Erfolgsmeldung anzeigen, wenn Formspree nach dem Absenden
-  // zurück auf diese Seite leitet (mit ?success=1 in der URL)
-  if (window.location.search.includes('success=1')) {
+  // Formular per AJAX senden — Besucher bleibt auf der Seite
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
     const success = document.getElementById('formSuccess');
-    const form = document.getElementById('contactForm');
-    success.style.display = 'block';
-    form.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
-    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet…';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response) {
+      if (response.ok) {
+        success.style.display = 'block';
+        form.reset();
+        document.getElementById('eventDetails').style.display = 'none';
+        submitBtn.textContent = 'Gesendet!';
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Nachricht senden';
+        alert('Es gab ein Problem beim Senden. Bitte versuche es nochmal oder schreibe direkt an info@baumstriezelei.at');
+      }
+    }).catch(function() {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Nachricht senden';
+      alert('Es gab ein Problem beim Senden. Bitte versuche es nochmal oder schreibe direkt an info@baumstriezelei.at');
+    });
+  });
 
   // Hamburger-Menü
   const toggle = document.querySelector('.nav-toggle');
