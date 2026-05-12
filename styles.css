@@ -5,6 +5,91 @@
    Änderungen hier wirken sich auf die gesamte Website aus!
    ============================================= */
 
+/* ── Lokal eingebundene Schriften (DSGVO-konform) ──
+   Statt von Google-Servern werden die Fonts direkt aus dem fonts/ Ordner geladen.
+   So werden keine Besucherdaten an Google übermittelt. */
+
+@font-face {
+  font-family: 'Alfa Slab One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/alfa-slab-one-v21-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/lato-v25-latin-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/lato-v25-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/lato-v25-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('fonts/lato-v25-latin-900.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sacramento';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/sacramento-v17-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/playfair-display-v40-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/playfair-display-v40-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/playfair-display-v40-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/playfair-display-v40-latin-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/playfair-display-v40-latin-600italic.woff2') format('woff2');
+}
+
 /* ── Farbvariablen & Design-Tokens ──
    Hier werden alle Farben, Schriften und Abstände zentral definiert.
    Um eine Farbe zu ändern, einfach den Wert hier anpassen —
