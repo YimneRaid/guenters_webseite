@@ -768,6 +768,10 @@ a:hover { color: var(--amber-dark); }
   color: var(--amber-dark);
   margin-bottom: 0.6rem;
 }
+/* Im Hero-Bereich (grüner Hintergrund) soll das Label weiß sein */
+.page-hero .section-label {
+  color: var(--white);
+}
 
 /* Sektions-Überschrift mit grünem Schatten */
 .section-title {
