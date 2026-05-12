@@ -1013,7 +1013,8 @@ a:hover { color: var(--amber-dark); }
 
 /* Tablets und kleinere Desktops (unter 880px) */
 @media (max-width: 880px) {
-  .banner-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .banner-grid { grid-template-columns: 1fr; gap: 2rem; justify-items: center; }
+  .olive-card { margin: 0 auto; }
   .hero-photo { height: 320px; }
   .usp-strip-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid-2 { grid-template-columns: 1fr; gap: 2rem; }
