@@ -20,39 +20,17 @@
     .page-hero-breadcrumb { font-size: 0.78rem; color: #d4b890; margin-bottom: 1.2rem; }
     .page-hero-breadcrumb a { color: var(--amber); }
 
-    /* Saison-Tabs (Kommende, Frühling, Sommer, Herbst, Winter) */
-    .season-tabs {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-      border-bottom: 2px solid var(--brown-pale);
-      padding-bottom: 0;
+    /* Vergangene Termine: ausgegraut */
+    .event-card.past {
+      opacity: 0.5;
     }
-    .season-tab {
-      padding: 0.65rem 1.5rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      font-family: var(--font-body);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      background: transparent;
-      color: var(--ink-soft);
-      border: none;
-      border-bottom: 3px solid transparent;
-      margin-bottom: -2px;
-      cursor: pointer;
-      transition: all 0.15s;
+    .event-card.past .event-date {
+      background: #8a8070;
     }
-    .season-tab:hover { color: var(--ink); }
-    .season-tab.active {
-      color: var(--green-deep);
-      border-bottom-color: var(--amber);   /* Goldene Unterstreichung */
+    .event-tag.tag-past {
+      background: #e0ddd8;
+      color: #7a7568;
     }
-
-    /* Saison-Panels: nur das aktive wird angezeigt */
-    .season-panel { display: none; }
-    .season-panel.active { display: block; }
 
     /* Terminliste — Karten untereinander */
     .event-list { display: flex; flex-direction: column; gap: 1.25rem; }
@@ -196,8 +174,7 @@
       <li><a href="index.html">Startseite</a></li>
       <li><a href="baumstriezel.html">Der Baumstriezel</a></li>
       <li><a href="ueber-guenter.html">Über uns</a></li>
-      <!-- Galerie vorübergehend deaktiviert -->
-      <!-- <li><a href="galerie.html">Galerie</a></li> -->
+      <li><a href="galerie.html">Galerie</a></li>
       <li><a href="termine.html" class="active">Termine</a></li>
       <li><a href="kontakt.html" class="nav-book-btn">Kontakt &amp; Buchen</a></li>
     </ul>
@@ -232,204 +209,133 @@
   <section class="section section--cream">
     <div class="container">
 
-      <!-- Saison-Tabs -->
-      <div class="season-tabs">
-        <button class="season-tab active" data-panel="upcoming">Kommende Termine</button>
-        <button class="season-tab" data-panel="sommer">Sommer</button>
-        <button class="season-tab" data-panel="herbst">Herbst</button>
-        <button class="season-tab" data-panel="winter">Winter</button>
-        <button class="season-tab" data-panel="vergangene">Vergangene</button>
-      </div>
+      <!-- Alle Termine in einer Liste — vergangene sind mit .past markiert -->
+      <div class="event-list">
 
-      <!-- ====== Panel: Kommende Termine ====== -->
-      <div class="season-panel active" id="panel-upcoming">
-        <p class="section-label" style="margin-bottom:1.5rem;">Nächste Veranstaltungen</p>
-        <div class="event-list">
+        <!-- ===== KOMMENDE TERMINE ===== -->
+        <p class="section-label" style="margin-bottom:0.5rem;">Kommende Termine</p>
 
-          <!-- Termin: Weinfest Promenade ✓ BESTÄTIGT -->
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">27</div>
-              <div class="event-date-month">Aug.</div>
-              <div class="event-date-year">2026</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Weinfest an der Promenade</p>
-              <p class="event-location">Promenade, Linz</p>
-              <span class="event-tag tag-summer">27.–29. Aug. 2026</span>
-            </div>
-            <div class="event-cta">
-              <a href="kontakt.html" class="btn btn-outline-dark" style="font-size:0.78rem; padding:0.5rem 1rem;">Infos</a>
-            </div>
+        <!-- Urfahranermarkt Herbst ✓ BESTÄTIGT -->
+        <div class="event-card">
+          <div class="event-date">
+            <div class="event-date-day">25</div>
+            <div class="event-date-month">Sep.</div>
+            <div class="event-date-year">2026</div>
           </div>
-
-          <!-- Termin: Urfahranermarkt Herbst ✓ BESTÄTIGT -->
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">25</div>
-              <div class="event-date-month">Sep.</div>
-              <div class="event-date-year">2026</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Urfahranermarkt Herbst</p>
-              <p class="event-location">Linz, Donaulände</p>
-              <span class="event-tag">25. Sep.–04. Okt. 2026</span>
-            </div>
-            <div class="event-cta">
-              <a href="kontakt.html" class="btn btn-outline-dark" style="font-size:0.78rem; padding:0.5rem 1rem;">Infos</a>
-            </div>
+          <div class="event-info">
+            <p class="event-name">Urfahranermarkt Herbst</p>
+            <p class="event-location">Linz, Donaulände</p>
+            <span class="event-tag">25. Sep.–04. Okt. 2026</span>
           </div>
-
-          <!-- Termin: Weihnachtsmarkt — Standort offen -->
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">—</div>
-              <div class="event-date-month">Dez.</div>
-              <div class="event-date-year">2026</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Weihnachtsmarkt</p>
-              <p class="event-location">Standort wird noch bekannt gegeben</p>
-              <span class="event-tag tag-winter">Winter</span>
-            </div>
-            <div class="event-cta">
-              <a href="kontakt.html" class="btn btn-outline-dark" style="font-size:0.78rem; padding:0.5rem 1rem;">Infos</a>
-            </div>
+          <div class="event-cta">
+            <a href="kontakt.html" class="btn btn-outline-dark" style="font-size:0.78rem; padding:0.5rem 1rem;">Infos</a>
           </div>
+        </div>
 
+        <!-- Weihnachtsmarkt — Standort offen -->
+        <div class="event-card">
+          <div class="event-date">
+            <div class="event-date-day">—</div>
+            <div class="event-date-month">Dez.</div>
+            <div class="event-date-year">2026</div>
+          </div>
+          <div class="event-info">
+            <p class="event-name">Weihnachtsmarkt</p>
+            <p class="event-location">Standort wird noch bekannt gegeben</p>
+            <span class="event-tag tag-winter">Winter</span>
+          </div>
+          <div class="event-cta">
+            <a href="kontakt.html" class="btn btn-outline-dark" style="font-size:0.78rem; padding:0.5rem 1rem;">Infos</a>
+          </div>
         </div>
 
         <!-- Hinweis -->
-        <p style="margin-top:2rem; font-size:0.87rem; color:var(--ink-soft);">
-          ℹ️ Weitere Termine werden laufend ergänzt. Für aktuelle Infos gerne per E-Mail melden oder auf Facebook folgen.
+        <p style="margin-top:1rem; margin-bottom:2.5rem; font-size:0.87rem; color:var(--ink-soft);">
+          Weitere Termine werden laufend ergänzt. Für aktuelle Infos gerne per E-Mail melden oder auf Facebook folgen.
         </p>
-      </div>
 
-      <!-- ====== Panel: Sommer ====== -->
-      <div class="season-panel" id="panel-sommer">
-        <div class="event-list">
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">27</div>
-              <div class="event-date-month">Aug.</div>
-              <div class="event-date-year">2026</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Weinfest an der Promenade</p>
-              <p class="event-location">Promenade, Linz</p>
-              <span class="event-tag tag-summer">27.–29. Aug. 2026</span>
-            </div>
+        <!-- ===== VERGANGENE TERMINE ===== -->
+        <p class="section-label" style="margin-bottom:0.5rem;">Vergangene Termine</p>
+
+        <!-- Weinfest Promenade — VERGANGEN -->
+        <div class="event-card past">
+          <div class="event-date">
+            <div class="event-date-day">27</div>
+            <div class="event-date-month">Aug.</div>
+            <div class="event-date-year">2026</div>
+          </div>
+          <div class="event-info">
+            <p class="event-name">Weinfest an der Promenade</p>
+            <p class="event-location">Promenade, Linz</p>
+            <span class="event-tag tag-past">27.–29. Aug. 2026</span>
           </div>
         </div>
-      </div>
 
-      <!-- ====== Panel: Herbst ====== -->
-      <div class="season-panel" id="panel-herbst">
-        <div class="event-list">
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">25</div>
-              <div class="event-date-month">Sep.</div>
-              <div class="event-date-year">2026</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Urfahranermarkt Herbst</p>
-              <p class="event-location">Linz, Donaulände</p>
-              <span class="event-tag">25. Sep.–04. Okt. 2026</span>
-            </div>
+        <!-- Bubblesdays — VERGANGEN -->
+        <div class="event-card past">
+          <div class="event-date">
+            <div class="event-date-day">Som</div>
+            <div class="event-date-month">2026</div>
+          </div>
+          <div class="event-info">
+            <p class="event-name">Bubblesdays</p>
+            <p class="event-location">Oberösterreich</p>
+            <span class="event-tag tag-past">Sommer 2026</span>
           </div>
         </div>
-      </div>
 
-      <!-- ====== Panel: Winter ====== -->
-      <div class="season-panel" id="panel-winter">
-        <div class="event-list">
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">—</div>
-              <div class="event-date-month">Dez.</div>
-              <div class="event-date-year">2026</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Weihnachtsmarkt</p>
-              <p class="event-location">Standort wird noch bekannt gegeben</p>
-              <span class="event-tag tag-winter">Winter</span>
-            </div>
+        <!-- Streetfood Wels — VERGANGEN -->
+        <div class="event-card past">
+          <div class="event-date">
+            <div class="event-date-day">Som</div>
+            <div class="event-date-month">2026</div>
+          </div>
+          <div class="event-info">
+            <p class="event-name">Streetfood Festival Salzkammergut – Wels</p>
+            <p class="event-location">Wels, Oberösterreich</p>
+            <span class="event-tag tag-past">Sommer 2026</span>
           </div>
         </div>
-      </div>
 
-      <!-- ====== Panel: Vergangene Termine ====== -->
-      <div class="season-panel" id="panel-vergangene">
-        <p class="section-label" style="margin-bottom:1.5rem;">Bereits stattgefunden</p>
-        <div class="event-list">
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">Som</div>
-              <div class="event-date-month">2026</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Bubblesdays</p>
-              <p class="event-location">Oberösterreich</p>
-              <span class="event-tag tag-summer">Sommer 2026</span>
-            </div>
+        <!-- Urfahranermarkt Frühling — VERGANGEN -->
+        <div class="event-card past">
+          <div class="event-date">
+            <div class="event-date-day">Apr</div>
+            <div class="event-date-month">2026</div>
           </div>
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">Som</div>
-              <div class="event-date-month">2026</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Streetfood Festival Salzkammergut – Wels</p>
-              <p class="event-location">Wels, Oberösterreich</p>
-              <span class="event-tag tag-summer">Sommer 2026</span>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">Apr</div>
-              <div class="event-date-month">2026</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Urfahranermarkt Frühling</p>
-              <p class="event-location">Linz, Donaulände</p>
-              <span class="event-tag tag-spring">Frühling 2026</span>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">Dez</div>
-              <div class="event-date-month">2025</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Weihnachtsmarkt</p>
-              <p class="event-location">Linz &amp; Umgebung</p>
-              <span class="event-tag tag-winter">Winter 2025</span>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">Okt</div>
-              <div class="event-date-month">2025</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Urfahranermarkt Herbst</p>
-              <p class="event-location">Linz, Donaulände</p>
-              <span class="event-tag">Herbst 2025</span>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-day">—</div>
-              <div class="event-date-month">Diverse</div>
-            </div>
-            <div class="event-info">
-              <p class="event-name">Private Firmenmärkte</p>
-              <p class="event-location">Verschiedene Standorte, Oberösterreich</p>
-              <span class="event-tag">Events</span>
-            </div>
+          <div class="event-info">
+            <p class="event-name">Urfahranermarkt Frühling</p>
+            <p class="event-location">Linz, Donaulände</p>
+            <span class="event-tag tag-past">Frühling 2026</span>
           </div>
         </div>
+
+        <!-- Weihnachtsmarkt 2025 — VERGANGEN -->
+        <div class="event-card past">
+          <div class="event-date">
+            <div class="event-date-day">Dez</div>
+            <div class="event-date-month">2025</div>
+          </div>
+          <div class="event-info">
+            <p class="event-name">Weihnachtsmarkt</p>
+            <p class="event-location">Linz &amp; Umgebung</p>
+            <span class="event-tag tag-past">Winter 2025</span>
+          </div>
+        </div>
+
+        <!-- Urfahranermarkt Herbst 2025 — VERGANGEN -->
+        <div class="event-card past">
+          <div class="event-date">
+            <div class="event-date-day">Okt</div>
+            <div class="event-date-month">2025</div>
+          </div>
+          <div class="event-info">
+            <p class="event-name">Urfahranermarkt Herbst</p>
+            <p class="event-location">Linz, Donaulände</p>
+            <span class="event-tag tag-past">Herbst 2025</span>
+          </div>
+        </div>
+
       </div>
 
       <!-- ============================================================
@@ -466,8 +372,7 @@
           <li><a href="index.html">Startseite</a></li>
           <li><a href="baumstriezel.html">Der Baumstriezel</a></li>
           <li><a href="ueber-guenter.html">Über uns</a></li>
-          <!-- Galerie vorübergehend deaktiviert -->
-          <!-- <li><a href="galerie.html">Galerie</a></li> -->
+          <li><a href="galerie.html">Galerie</a></li>
           <li><a href="termine.html">Termine</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
@@ -494,18 +399,6 @@
      2. Hamburger-Menü: Mobile Navigation öffnen/schließen
      ============================================================ -->
 <script>
-  // Saison-Tab Wechsel
-  document.querySelectorAll('.season-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      // Alle Tabs und Panels deaktivieren
-      document.querySelectorAll('.season-tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.season-panel').forEach(p => p.classList.remove('active'));
-      // Angeklickten Tab und zugehöriges Panel aktivieren
-      tab.classList.add('active');
-      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
-    });
-  });
-
   // Hamburger-Menü
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
