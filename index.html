@@ -11,6 +11,14 @@
 
 <!-- HAUPT-STYLESHEET — alle Farben, Layouts, Abstände -->
 <link rel="stylesheet" href="styles.css">
+<style>
+  @media (max-width: 900px) {
+    #sorten-grid-home { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 600px) {
+    #sorten-grid-home { grid-template-columns: 1fr !important; }
+  }
+</style>
 </head>
 
 <!-- "page-home" gibt der Startseite den dunklen Holz-Hintergrund
@@ -203,6 +211,30 @@
 
 
   <!-- ============================================
+       UNSERE SORTEN — Wird aus sorten.json geladen
+       Um Sorten zu ändern: einfach sorten.json bearbeiten.
+       ============================================ -->
+  <section class="section section--cream">
+    <div class="container" style="text-align:center;">
+      <div class="heading-script">Süß & vielfältig</div>
+      <h2>Unsere Sorten</h2>
+      <p style="max-width:600px; margin:0 auto 2rem; color:var(--ink-soft); line-height:1.7;">Ob klassisch mit Zimt-Zucker oder ausgefallen mit Pistazie — für jeden Geschmack ist etwas dabei.</p>
+
+      <div id="sorten-grid-home" style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; text-align:left;"></div>
+
+      <div style="margin-top:2rem;">
+        <p style="font-size:0.88rem; color:var(--ink-soft); line-height:1.7; margin-bottom:0.5rem;">Das Angebot kann je nach Markt und Saison variieren.</p>
+        <p style="font-size:0.88rem; color:var(--ink-soft); line-height:1.7;">Allergene? Fragt uns einfach direkt am Stand — wir beraten euch gerne!</p>
+      </div>
+
+      <a href="baumstriezel.html" class="pill-btn solid" style="margin-top:1.5rem;">Mehr über den Baumstriezel</a>
+    </div>
+  </section>
+
+  <div class="green-band"></div>
+
+
+  <!-- ============================================
        MÄRKTE — Die grünen Karten mit den Markt-Infos
        Zum Hinzufügen: einfach einen neuen <div class="market-tile">
        Block kopieren und Text ändern
@@ -314,6 +346,21 @@
      Muss nicht geändert werden
      ============================================ -->
 <script>
+  fetch('sorten.json')
+    .then(function(r) { return r.json(); })
+    .then(function(sorten) {
+      var grid = document.getElementById('sorten-grid-home');
+      if (!grid) return;
+      sorten.forEach(function(s) {
+        grid.innerHTML += '<div style="background:var(--white); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm);">' +
+          '<img src="' + s.bild + '" alt="' + s.name + '" loading="lazy" style="width:100%; height:160px; object-fit:cover;">' +
+          '<div style="padding:1.25rem;">' +
+          '<p style="font-family:var(--font-display); font-size:1.05rem; font-weight:600; color:var(--ink); margin-bottom:0.4rem;">' + s.name + '</p>' +
+          '<p style="font-size:0.87rem; color:var(--ink-soft); line-height:1.65;">' + s.beschreibung + '</p>' +
+          '</div></div>';
+      });
+    });
+
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {

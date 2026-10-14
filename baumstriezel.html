@@ -226,79 +226,22 @@
   </section>
 
   <!-- ============================================================
-       SEKTION 3: VARIANTEN — 3 Produktkarten
-       Um eine Variante zu ändern: Text in .variety-name und .variety-desc anpassen
-       Um ein Bild einzufügen: .img-placeholder durch <img> ersetzen
+       SEKTION 3: UNSERE SORTEN
+       Sorten werden automatisch aus sorten.json geladen.
+       Um Sorten zu ändern: einfach sorten.json bearbeiten.
        ============================================================ -->
   <section class="section section--white">
     <div class="container">
       <p class="section-label">Unsere Angebote</p>
-      <h2 class="section-title">Varianten</h2>
+      <h2 class="section-title">Unsere Sorten</h2>
       <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
       <p class="section-lead">Klassisch ist unschlagbar — aber wir bieten auch weitere Variationen an.</p>
 
-      <div class="varieties-grid">
-        <!-- Variante 1: Klassisch mit Zucker -->
-        <div class="variety-card">
-          <div class="img-placeholder variety-img">
-            <img src="uploads/image.webp" alt="Klassisch mit Zimt-Zucker" class="variety-img" width="700" height="382" loading="lazy" style="object-fit:cover;">
-          </div>
-          <div class="variety-body">
-            <p class="variety-name">Klassisch mit Zimt-Zucker</p>
-            <p class="variety-desc">Das Original — goldbraun gebacken, mit karamellisiertem Zucker. Einfach unwiderstehlich.</p>
-          </div>
-        </div>
-        <!-- Variante 2: Mit Zimt -->
-        <div class="variety-card">
-          <div class="img-placeholder variety-img">
-            <img src="uploads/Cocus.webp" alt="Mit Kokos" class="variety-img" width="700" height="382" loading="lazy" style="object-fit:cover;">
-          </div>
-          <div class="variety-body">
-            <p class="variety-name">Mit KOKOS</p>
-            <p class="variety-desc">Die KOKOS-Variante verbreitet besonders im Winter ein wunderbar wärmendes Aroma.</p>
-          </div>
-        </div>
-        <!-- Variante 3: Mit Kokos -->
-        <div class="variety-card">
-          <div class="img-placeholder variety-img">
-            <img src="uploads/Haselnuss.webp" alt="Mit Haselnuss" class="variety-img" width="700" height="382" loading="lazy" style="object-fit:cover;">
-          </div>
-          <div class="variety-body">
-            <p class="variety-name">Mit HASELNUSS</p>
-            <p class="variety-desc">HASELNUSS, süß und mit einem Hauch Exotik — ein beliebter Favorit bei unseren Gästen.</p>
-          </div>
-        </div>
-        <!-- Variante 4: Mit SHOKO -->
-        <div class="variety-card">
-          <div class="img-placeholder variety-img">
-            <img src="uploads/SHOKO.webp" alt="Mit Schokolade" class="variety-img" width="700" height="382" loading="lazy" style="object-fit:cover;">
-          </div>
-          <div class="variety-body">
-            <p class="variety-name">Mit SHOKO</p>
-            <p class="variety-desc">Schoko, vollmundig und verführerisch — der perfekte Klassiker für süße Momente.</p>
-          </div>
-        </div>
-        <!-- Variante 5: Mit Pistazie -->
-        <div class="variety-card">
-          <div class="img-placeholder variety-img">
-            <img src="uploads/Pistazie1.webp" alt="Mit Pistazie" class="variety-img" width="700" height="382" loading="lazy" style="object-fit:cover;">
-          </div>
-          <div class="variety-body">
-            <p class="variety-name">Mit PISTAZIE</p>
-            <p class="variety-desc">Pistazie, cremig und intensiv — ein echter Genuss für alle Pistazienliebhaber.</p>
-          </div>
-        </div>
-        <!-- Variante 6: Mit EIS -->
-        <div class="variety-card">
-          <div class="img-placeholder variety-img">
-            <img src="uploads/mit_eis_mehrer_sorten.webp" alt="Mit Eis" class="variety-img" width="700" height="382" loading="lazy" style="object-fit:cover;">
-          </div>
-          <div class="variety-body">
-            <p class="variety-name">Mit EIS</p>
-            <p class="variety-desc">Alle varianten können Sie auch mit Weicheis bestellen für die heißen Tage.</p>
-          </div>
-        </div>
+      <div class="varieties-grid" id="sorten-grid"></div>
 
+      <div style="margin-top:2rem; text-align:center;">
+        <p style="font-size:0.88rem; color:var(--ink-soft); line-height:1.7; margin-bottom:0.5rem;">Das Angebot kann je nach Markt und Saison variieren.</p>
+        <p style="font-size:0.88rem; color:var(--ink-soft); line-height:1.7;">Allergene? Fragt uns einfach direkt am Stand — wir beraten euch gerne!</p>
       </div>
     </div>
   </section>
@@ -366,6 +309,21 @@
      Öffnet/schließt die Navigation auf kleinen Bildschirmen
      ============================================================ -->
 <script>
+  fetch('sorten.json')
+    .then(function(r) { return r.json(); })
+    .then(function(sorten) {
+      var grid = document.getElementById('sorten-grid');
+      if (!grid) return;
+      sorten.forEach(function(s) {
+        grid.innerHTML += '<div class="variety-card">' +
+          '<img src="' + s.bild + '" alt="' + s.name + '" class="variety-img" loading="lazy" style="width:100%; height:160px; object-fit:cover;">' +
+          '<div class="variety-body">' +
+          '<p class="variety-name">' + s.name + '</p>' +
+          '<p class="variety-desc">' + s.beschreibung + '</p>' +
+          '</div></div>';
+      });
+    });
+
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {

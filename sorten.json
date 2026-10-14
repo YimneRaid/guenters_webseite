@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Zimt-Zucker",
+    "bild": "uploads/image.webp",
+    "beschreibung": "Das Original — goldbraun gebacken, mit karamellisiertem Zucker und feinem Zimt. Einfach unwiderstehlich."
+  },
+  {
+    "name": "Schokolade",
+    "bild": "uploads/SHOKO.webp",
+    "beschreibung": "Vollmundig und verführerisch — der perfekte Klassiker für süße Schokoladen-Momente."
+  },
+  {
+    "name": "Kokos",
+    "bild": "uploads/Cocus.webp",
+    "beschreibung": "Mit feinen Kokosraspeln bestreut — ein exotischer Genuss, der besonders im Winter wärmt."
+  },
+  {
+    "name": "Haselnuss",
+    "bild": "uploads/Haselnuss.webp",
+    "beschreibung": "Knackige Haselnussstückchen auf knusprigem Teig — ein beliebter Favorit bei unseren Gästen."
+  },
+  {
+    "name": "Pistazie",
+    "bild": "uploads/Pistazie1.webp",
+    "beschreibung": "Cremig und intensiv — fein gehackte Pistazien machen diesen Baumstriezel zum Highlight."
+  },
+  {
+    "name": "Mit Eis",
+    "bild": "uploads/mit_eis_mehrer_sorten.webp",
+    "beschreibung": "Alle Sorten auch mit cremigem Weicheis — perfekt für die heißen Tage."
+  }
+]
